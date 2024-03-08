@@ -17,8 +17,8 @@
         }
 
         header {
-            background-color: #fff;
-            padding: 0 10px;
+            background-color: #C7EAFF;
+            padding: 0 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -69,10 +69,19 @@
         .text-portada {
             position: absolute;
             top: 80%;
-            left: 5%;
+            left: 2%;
             background-color: #C7EAFF;
             opacity: 0.8;
-            padding: 30px;
+            padding: 40px;
+        }
+
+        .text-portada p {
+            font-size: 17px;
+            color: #004AAD;
+        }
+
+        .text-portada h2 {
+            color: #004AAD;
         }
     </style>
 </head>
@@ -100,7 +109,7 @@
         <div class="portada">
             <img src="images/portada.png" alt="">
             <div class="text-portada">
-                <h3>¡Bienvenidos a LabDental Congreso!</h3>
+                <h2>¡Bienvenidos a LabDental Congreso!</h2>
                 <p> Somos especialistas en la fabricación y reparación de prótesis removibles. <br> Con nosotros, encontrarás soluciones dentales confiables y de calidad</p>
             </div>
         </div>
