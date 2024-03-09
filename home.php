@@ -41,7 +41,7 @@
         }
 
         .sec-ubicacion p {
-            font-size: 20px;
+            font-size: 18px;
             margin-left: 5px;
             color: #004AAD;
         }
@@ -52,7 +52,7 @@
         }
 
         .icons-social p {
-            font-size: 20px;
+            font-size: 18px;
             margin-left: 5px;
             color: #004AAD;
         }
@@ -76,7 +76,7 @@
         }
 
         .text-portada p {
-            font-size: 20px;
+            font-size: 18px;
             color: #004AAD;
         }
 
@@ -105,7 +105,7 @@
         }
 
         .datos-principales p {
-            font-size: 20px;
+            font-size: 18px;
             color: #fff;
         }
 
@@ -146,7 +146,7 @@
         }
 
         .info-contacto p {
-            font-size: 20px;
+            font-size: 18px;
             color: #004AAD;
         }
 
@@ -172,8 +172,17 @@
         }
 
         .servicios p {
-            font-size: 20px;
+            font-size: 18px;
             color: #004AAD;
+        }
+
+        .phone-social {
+            width: auto;
+            height: 750px;
+            position: absolute; /* Agregar posición absoluta */
+            top: -30px; /* Ajustar posición según necesites */
+            left: 150px; /* Ajustar posición según necesites */
+            z-index: 1; /* Asegurarse de que esté delante del iframe */
         }
 
         footer {
@@ -209,7 +218,7 @@
         }
 
         footer p {
-            font-size: 20px;
+            font-size: 18px;
             color: #fff;
             padding: 10px;
         }
@@ -226,11 +235,11 @@
         </section>
         <a href="home.php"><img src="images/logo.png" alt="" class="logo"></a>
         <section class="icons-social">
-            <a href=""><img src="images/whatsapp.png" alt="" class="icon"></a>
-            <a href=""><img src="images/facebook.png" alt="" class="icon"></a>
-            <a href=""><img src="images/instagram.png" alt="" class="icon"></a>
-            <a href=""><img src="images/correo.png" alt="" class="icon"></a>
-            <a href=""><img src="images/telefono.png" alt="" class="icon"></a>
+            <a href="" target="_blank"><img src="images/whatsapp.png" alt="" class="icon"></a>
+            <a href="https://www.facebook.com/LabDentalCongreso" target="_blank"><img src="images/facebook.png" alt="" class="icon"></a>
+            <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la" target="_blank"><img src="images/instagram.png" alt="" class="icon"></a>
+            <a href="" target="_blank"><img src="images/correo.png" alt="" class="icon"></a>
+            <a href="" target="_blank"><img src="images/telefono.png" alt="" class="icon"></a>
             <p>11 5601-8912</p>
         </section>
     </header>
@@ -344,6 +353,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div style="position: relative;">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso&tabs=timeline&width=400&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="400" height="700" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <img src="images/phone.png" alt="" class="phone-social">
+            
         </div>
     </main>
 
