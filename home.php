@@ -113,6 +113,11 @@
             color: #fff;
         }
 
+        .video-info {
+            display: flex;
+            justify-content: center ;
+        }
+
         .contactos {
             margin: 40px 0;
         }
@@ -158,8 +163,6 @@
 
         .productos {
             padding: 20px;
-            display: flex;
-            justify-content: center;
         }
 
         .productos-check {
@@ -176,13 +179,19 @@
             color: #004AAD;
         }
 
-        .phone-social {
-            width: auto;
-            height: 750px;
-            position: absolute; /* Agregar posición absoluta */
-            top: -30px; /* Ajustar posición según necesites */
-            left: 150px; /* Ajustar posición según necesites */
-            z-index: 1; /* Asegurarse de que esté delante del iframe */
+        .socials {
+            padding: 50px 0;
+        }
+
+        .phones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phones iframe {
+            border-radius: 50px;
+            margin: 0 30px;
         }
 
         footer {
@@ -277,6 +286,67 @@
             </center>
         </div>
 
+        <div class="video-info">
+            <video width="700" height="700" autoplay controls>
+                <source src="LabDental.mp4" type="video/mp4">
+                <source src="" type="video/mp4">
+                Tu navegador no es compatible con videos HTML5
+            </video>
+
+            <div class="servicios">
+                <center>
+                    <h2 class="boton-titulo">Productos y servicios</h2>
+                </center>
+                <div class="productos">
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Prótesis flexibles</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Prótesis de acrilico</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Prótesis con cromo cobalto</p>
+                    </div>
+
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Prótesis arañitas</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Prótesis completas o parciales</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Reparación de prótesis</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Ajustes y modificaciones en prótesis</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Rebasado de prótesis (para mejorar el ajuste)</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Placas ortodónticas</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Retenedores dentales</p>
+                    </div>
+                    <div class="productos-check">
+                        <img src="images/check.png" alt="" class="icon-check">
+                        <p>Protectores bucales para deportistas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="contactos">
             <center>
                 <h2 class="boton-titulo">Contáctese con nosotros</h2>
@@ -316,49 +386,14 @@
             </div>
         </div>
 
-        <div class="servicios">
+        <div class="socials">
             <center>
-                <h2 class="boton-titulo">Productos y servicios</h2>
-                <p>Buscamos que nuestros clientes queden satisfechos con los productos y servicios que tenemos, por eso ofrecemos:</p>
+                <h2 class="boton-titulo">Seguinos en</h2>
             </center>
-
-            <div class="productos">
-                <div>
-                    <div class="productos-check">
-                        <img src="images/check.png" alt="" class="icon-check">
-                        <p>Prótesis flexibles, acrílico, porcelana y cromo</p>
-                    </div>
-                    <div class="productos-check">
-                        <img src="images/check.png" alt="" class="icon-check">
-                        <p>Coronas de porcelana</p>
-                    </div>
-                    <div class="productos-check">
-                        <img src="images/check.png" alt="" class="icon-check">
-                        <p>Pernos</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="productos-check">
-                        <img src="images/check.png" alt="" class="icon-check">
-                        <p>Composturas en el día de acrílico y flexible</p>
-                    </div>
-                    <div class="productos-check">
-                        <img src="images/check.png" alt="" class="icon-check">
-                        <p>Prótesis sobre implantes</p>
-                    </div>
-                    <div class="productos-check">
-                        <img src="images/check.png" alt="" class="icon-check">
-                        <p>Coronas</p>
-                    </div>
-                </div>
+            <div class="phones">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0" src="https://www.instagram.com/labdentalcongreso/embed/?cr=1&amp;v=12&amp;wp=675&amp;rd=http%3A%2F%2Flocalhost&amp;rp=%2Flab-dental%2F#%7B%22ci%22%3A0%2C%22os%22%3A107.29999999701977%2C%22ls%22%3A41.79999999701977%2C%22le%22%3A41.79999999701977%7D" allowtransparency="true" allowfullscreen="true" frameborder="0" height="561" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="background: white; max-width: 540px; width: 99.375%; max-height: 100%; border-radius: 30px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;"></iframe>
             </div>
-        </div>
-
-        <div style="position: relative;">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso&tabs=timeline&width=400&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="400" height="700" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            <img src="images/phone.png" alt="" class="phone-social">
-            
         </div>
     </main>
 
