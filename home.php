@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab Dental Congreso</title>
+    <link rel="icon" href="images/logo.png">
 </head>
 
 <style>
@@ -211,16 +211,9 @@
         margin-top: 30px;
     }
 
-    .marcas {
-        display: flex;
-        justify-content: center;
-    }
-
-    .rectangulo {
-        width: 15%;
-        height: 100px;
-        background-color: #fff;
-        margin: 30px;
+    .marcas img {
+        width: 70%;
+        margin: 20px;
     }
 
     .QR {
@@ -427,11 +420,7 @@
             <h2 class="boton-titulo-footer">Trabajamos con las mejores marcas y proveedores</h2>
 
             <div class="marcas">
-                <div class="rectangulo"></div>
-                <div class="rectangulo"></div>
-                <div class="rectangulo"></div>
-                <div class="rectangulo"></div>
-                <div class="rectangulo"></div>
+                <img src="images/marcas.png" alt="">
             </div>
 
             <div class="social-QR">
