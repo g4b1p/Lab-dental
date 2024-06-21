@@ -30,7 +30,13 @@
         background-color: #C7EAFF;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 5px 15px;
+    }
+
+    header p {
+        color: #004AAD;
+        font-size: 20px;
     }
 
     .icon {
@@ -230,6 +236,7 @@
 
 <body>
     <header>
+        <i><p>Adolfo Alsina 1609, Piso 7 Oficina 7 <br> Monserrat - Capital Federal</p></i>
         <a href="home.php"><img src="images/logo.png" alt="" class="logo"></a>
         <section class="icons-social">
             <a href=""><img src="images/whatsapp.png" alt="" class="icon"></a>
