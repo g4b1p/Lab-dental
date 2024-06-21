@@ -55,13 +55,24 @@
         align-items: center;
     }
 
-    .icons-social p {
-        font-size: 20px;
-        margin-left: 5px;
+    .llamada {
+        display: flex;
+        align-items: center;
         color: #004AAD;
+        font-size: 20px;
+        text-decoration: none;
+        border: 2px solid #004AAD;
+        border-radius: 40px;
+        padding: 5px 10px;
     }
 
     /*portada*/
+    .portada {
+        display: flex;
+        align-items: flex-end;
+
+    }
+
     .portada img {
         width: 100%;
         height: auto;
@@ -69,8 +80,6 @@
 
     .text-portada {
         position: absolute;
-        top: 75%;
-        left: 3%;
         background-color: #C7EAFF;
         opacity: 0.8;
         padding: 40px;
@@ -99,6 +108,7 @@
     }
 
     .dato {
+        max-width: 450px;
         margin: 25px 0;
     }
 
@@ -181,7 +191,6 @@
     }
 
     .info-contacto p {
-        font-size: 18px;
         color: #004AAD;
     }
 
@@ -232,33 +241,215 @@
         color: #fff;
         padding: 10px;
     }
+
+    /*responsives*/
+
+    @media screen and (max-width: 1400px) {
+
+        /*video y info*/
+        .video-info {
+            flex-direction: column;
+            margin: 5% 9%;
+        }
+
+        .dato {
+            max-width: 500px;
+        }
+
+        /*socials*/
+        .socials {
+            margin: 5% 9%;
+        }
+
+        .redes {
+            flex-direction: column;
+        }
+
+        .redes iframe {
+            border-radius: 30px;
+            margin: 20px 0;
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+
+        main p {
+            font-size: 18px;
+        }
+
+        /*header*/
+        header {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 5px 15px;
+        }
+
+        .llamada {
+            font-size: 18px;
+            padding: 3px 10px;
+        }
+
+        header i {
+            display: none;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+        }
+
+        /*portada*/
+        .text-portada p {
+            font-size: 18px;
+        }
+
+        .text-portada h1 {
+            font-size: 30px;
+        }
+
+        /*contacto*/
+        .contactos {
+            margin: 5% 9%;
+        }
+
+        .datos-contacto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .infos {
+            margin: 20px 0;
+        }
+
+        /*footer*/
+        footer p {
+            font-size: 18px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+
+        main p {
+            font-size: 12px;
+        }
+
+        /*header*/
+        .llamada {
+            padding: 3px 10px;
+            font-size: 12px;
+        }
+
+        .icon {
+            width: 45px;
+            height: auto;
+            margin-right: 5px;
+        }
+
+        /*portada*/
+        .text-portada p {
+            font-size: 12px;
+        }
+
+        .text-portada h1 {
+            font-size: 20px;
+        }
+
+        .portada {
+            display: flex;
+            align-items: center;
+            flex-direction: column-reverse;
+        }
+
+        .portada img {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-portada {
+            position: relative;
+            background-color: #C7EAFF;
+            opacity: 0.8;
+            padding: 40px;
+        }
+
+        /*titulos globos*/
+        .boton-titulo {
+            font-size: 18px;
+        }
+
+        .boton-titulo-footer {
+            margin: 20px 10px;
+            font-size: 15px;
+        }
+
+        /*Productos y servicios*/
+        .productos {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+        }
+
+        /*video y info*/
+        video {
+            width: 350px;
+            height: auto;
+        }
+
+        .datos-principales h1 {
+            font-size: 20px;
+        }
+
+        /*socials*/
+        .redes iframe {
+            border-radius: 30px;
+            margin: 20px 0;
+        }
+
+        /*footer*/
+        footer p {
+            font-size: 12px;
+        }
+
+        .marcas img {
+            width: 90%;
+            /*dividir img*/
+            margin: 20px;
+        }
+
+        .QR {
+            width: 30%;
+            margin: 15px;
+        }
+    }
 </style>
 
 <body>
     <header>
-        <i><p>Adolfo Alsina 1609, Piso 7 Oficina 7 <br> Monserrat - Capital Federal</p></i>
+        <i>
+            <p>Adolfo Alsina 1609, Piso 7 Oficina 7 <br> Monserrat - Capital Federal</p>
+        </i>
         <a href="home.php"><img src="images/logo.png" alt="" class="logo"></a>
         <section class="icons-social">
-            <a href=""><img src="images/whatsapp.png" alt="" class="icon"></a>
             <a href="https://www.facebook.com/LabDentalCongreso" target="_blank"><img src="images/facebook.png" alt="" class="icon"></a>
             <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la" target="_blank"><img src="images/instagram.png" alt="" class="icon"></a>
-            <a href=""><img src="images/correo.png" alt="" class="icon"></a>
-            <a href=""><img src="images/telefono.png" alt="" class="icon"></a>
-            <p>11 5601-8912</p>
+            <a href="mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar..."><img src="images/correo.png" alt="" class="icon"></a>
+            <a href="tel:11-5601-8912" class="llamada"><img src="images/telefono.png" alt="" class="icon">11 5601-8912</a>
         </section>
     </header>
 
     <div class="portada">
-        <img src="images/portada.png" alt="">
         <div class="text-portada">
             <h1>¡Bienvenidos a LabDental Congreso!</h1>
             <p> Somos especialistas en la fabricación y reparación de prótesis removibles. <br> Con nosotros, encontrarás soluciones dentales confiables y de calidad.</p>
         </div>
+        <img src="images/portada.png" alt="">
     </div>
 
     <main>
         <div class="video-info">
-            <video width="700" height="700" autoplay controls>
+            <video width="700" height="700" autoplay muted controls>
                 <source src="LabDental.mp4" type="video/mp4">
                 <source src="" type="video/mp4">
                 Tu navegador no es compatible con videos HTML
@@ -377,8 +568,8 @@
                 <h2 class="boton-titulo">Contáctese con nosotros</h2>
             </center>
             <div class="datos-contacto">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.7195252249057!2d-58.3892188!3d-34.61125319999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda694bff709%3A0xd9c8fb2ea844c65c!2sLaboratorio%20Dental%20Congreso!5e0!3m2!1ses!2sar!4v1709940723165!5m2!1ses!2sar" style="margin: 0 15px;" width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.7195252249057!2d-58.3892188!3d-34.61125319999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda694bff709%3A0xd9c8fb2ea844c65c!2sLaboratorio%20Dental%20Congreso!5e0!3m2!1ses!2sar!4v1709940723165!5m2!1ses!2sar" style="margin: 0 15px;" width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="infos">
                     <div class="info-contacto">
                         <img src="images/ubicacion.png" alt="" class="icon-contacto">
                         <p>Adolfo Alsina 1609, Piso 7 Oficina 7 <br> Monserrat - Capital Federal</p>
@@ -416,7 +607,7 @@
                 <h2 class="boton-titulo">Seguinos en</h2>
             </center>
             <div class="redes">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="350" height="450" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> <!-- buscar solcucion -->
                 <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0" src="https://www.instagram.com/labdentalcongreso/embed/?cr=1&amp;v=12&amp;wp=675&amp;rd=http%3A%2F%2Flocalhost&amp;rp=%2Flab-dental%2F#%7B%22ci%22%3A0%2C%22os%22%3A107.29999999701977%2C%22ls%22%3A41.79999999701977%2C%22le%22%3A41.79999999701977%7D" allowtransparency="true" allowfullscreen="true" frameborder="0" height="561" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="background: white; max-width: 540px; width: 99.375%; max-height: 100%; border-radius: 30px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;"></iframe>
             </div>
         </div>
@@ -437,7 +628,7 @@
             </div>
         </center>
         <p>Laboratorio Dental Congreso © Copyright 2023 <br> Todos los derechos reservados.</p>
-        <a href="https://api.whatsapp.com/send?phone=%2B541128506874&text=Hola!%20Quisiera%20hacer%20una%20consulta" class="whatsapp">
+        <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta." class="whatsapp">
             <img src="images/icon-whats.png" class="images" style="width: 80px; height: auto; margin: 10px; position: fixed; bottom: 15px; right: 15px;">
         </a>
     </footer>
