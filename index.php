@@ -449,7 +449,7 @@
         <i>
             <p>Adolfo Alsina 1609, Piso 7 Oficina 7 <br> Monserrat - Capital Federal</p>
         </i>
-        <a href="home.php"><img src="images/logo.png" alt="" class="logo"></a>
+        <a href="index.php"><img src="images/logo.png" alt="" class="logo"></a>
         <section class="icons-social">
             <a href="https://www.facebook.com/LabDentalCongreso" target="_blank"><img src="images/facebook.png" alt="" class="icon"></a>
             <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la" target="_blank"><img src="images/instagram.png" alt="" class="icon"></a>
