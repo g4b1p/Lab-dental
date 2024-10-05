@@ -603,6 +603,7 @@
             </div>
         </center>
         <p>Laboratorio Dental Congreso © Copyright 2024 <br> Todos los derechos reservados.</p>
+        
         <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta." target="_blank" class="whatsapp">
             <img src="images/icon-whats.png" class="images" style="width: 80px; height: auto; margin: 10px; position: fixed; bottom: 10px; right: 10px;">
         </a>
