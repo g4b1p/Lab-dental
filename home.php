@@ -658,13 +658,13 @@
                 }
 
                 function showNext() {
-                    currentIndex = (currentIndex + 1) % iframes.length; // Ciclo de índices
+                    currentIndex = (currentIndex + 3) % iframes.length; // Ciclo de índices
                     showIframe(currentIndex);
                     
                 }
 
                 function showPrevious() {
-                    currentIndex = (currentIndex - 1 + iframes.length) % iframes.length; // Ciclo de índices
+                    currentIndex = (currentIndex - 3 + iframes.length) % iframes.length; // Ciclo de índices
                     showIframe(currentIndex);
                 }
 
@@ -681,12 +681,12 @@
                 }
 
                 function showNext5() {
-                    currentIndex5 = (currentIndex5 + 1) % iframes5.length; // Ciclo de índices
+                    currentIndex5 = (currentIndex5 + 3) % iframes5.length; // Ciclo de índices
                     showIframe5(currentIndex5);
                 }
 
                 function showPrevious5() {
-                    currentIndex5 = (currentIndex5 - 1 + iframes5.length) % iframes5.length; // Ciclo de índices
+                    currentIndex5 = (currentIndex5 - 3 + iframes5.length) % iframes5.length; // Ciclo de índices
                     showIframe5(currentIndex5);
                 }
 
