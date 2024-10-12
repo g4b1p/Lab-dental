@@ -54,10 +54,12 @@
 
     .icons-social {
         display: flex;
-        align-items: center;
         border: 2px solid #E76868;
         border-radius: 30px;
         background-color: transparent;
+        justify-content: center;
+        width: 450px;
+        margin: 15px 0;
     }
 
     /*portada*/
@@ -192,29 +194,80 @@
         height: 500px;
     }
 
-    /*socials*/
-    .socials {
+    .QR {
+        width: 170px;
+        margin: 30px 10px;
+    }
+
+    /* Carruseles */
+    .carruseles {
         margin: 2% 9%;
     }
 
-    .redes {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .iframe-carousel,
+    .iframe-carousel-2 {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        /* Ancho máximo del carrusel */
+        margin: auto;
+        overflow: hidden;
+        /* Esconde el contenido que se desborda */
     }
 
-    .fb-column,
-    .ig-column {
+    .iframe-wrapper,
+    .iframe-wrapper-2 {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
+        transition: transform 0.5s ease-in-out;
+        /* Transición suave para el desplazamiento */
+    }
+
+    .iframe-wrapper iframe,
+    .iframe-wrapper-2 iframe {
+        min-width: 33.33%;
+        /* Un tercio del ancho total para cada iframe */
+        border: none;
+        /* Sin borde en los iframes */
+    }
+
+    /* Estilo para los botones de navegación */
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        /* Centrado verticalmente */
+        font-size: 24px;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Fondo semi-transparente */
+        color: white;
+        /* Color de texto blanco */
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+        /* Asegúrate que los botones estén por encima del contenido */
+    }
+
+    .prev {
+        left: 0;
+        /* Posición izquierda */
+    }
+
+    .next {
+        right: 0;
+        /* Posición derecha */
+    }
+
+    /* Opcional: estilo para los iframes en el segundo carrusel */
+    .iframe-wrapper-2 iframe {
+        height: 400px;
+        /* Altura ajustada para el segundo carrusel */
     }
 
     /*footer*/
     footer {
         background-color: #E76868;
-        padding: 1% 0;
+        padding: 15px;
     }
 
     .boton-titulo-footer {
@@ -224,28 +277,31 @@
         border-radius: 50px;
         background-color: transparent;
         color: #fff;
-        text-decoration: none;
         margin-top: 30px;
     }
 
     .marcas {
         width: 60rem;
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .marcas2 {
         display: none;
     }
 
-    .QR {
-        width: 170px;
-        margin: 30px 10px;
-    }
-
     footer p {
         font-size: 20px;
         color: #fff;
-        padding: 10px;
+    }
+
+    .icons-social-blancos {
+        display: flex;
+        border: 2px solid #fff;
+        border-radius: 30px;
+        background-color: transparent;
+        justify-content: center;
+        width: 450px;
+        margin: 15px 0;
     }
 
     /*responsives*/
@@ -322,7 +378,7 @@
     @media screen and (max-width: 800px) {
 
         main p {
-            font-size: 12px;
+            font-size: 15px;
         }
 
         /*header*/
@@ -338,7 +394,7 @@
         }
 
         .text-portada h1 {
-            font-size: 20px;
+            font-size: 25px;
         }
 
         .portada {
@@ -361,12 +417,12 @@
 
         /*titulos globos*/
         .boton-titulo {
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .boton-titulo-footer {
             margin: 20px 10px;
-            font-size: 15px;
+            font-size: 20px;
         }
 
         /*Productos y servicios*/
@@ -382,7 +438,7 @@
             height: auto;
         }
 
-        .datos-principales h1 {
+        .info-nuestra h1 {
             font-size: 20px;
         }
 
@@ -391,19 +447,14 @@
             flex-direction: column;
         }
 
-        /*contactos*/
-        .datos-contacto iframe {
-            width: 350px;
-            height: 400px;
-        }
-
         /*footer*/
         footer p {
-            font-size: 12px;
+            font-size: 15px;
         }
 
         .marcas2 {
             width: 30rem;
+            margin: 0;
         }
     }
 </style>
@@ -419,6 +470,15 @@
         ["link" => "https://www.tiktok.com/@labdeltal?is_from_webapp=1&sender_device=pc", "image" => "images/tiktok.png"],
         ["link" => "tel:11-5601-8912", "image" => "images/telefono.png"],
         ["link" => "https://maps.app.goo.gl/qNqJL3g7YrWN5gr28", "image" => "images/ubicacion.png"],
+    ];
+
+    $iconosSocialesBlancos = [
+        ["link" => "https://www.facebook.com/LabDentalCongreso", "image" => "images/facebook-blanco.png"],
+        ["link" => "https://www.instagram.com/labdentalcongreso/?hl=es-la", "image" => "images/instagram-blanco.png"],
+        ["link" => "mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar...", "image" => "images/correo-blanco.png"],
+        ["link" => "https://www.tiktok.com/@labdeltal?is_from_webapp=1&sender_device=pc", "image" => "images/tiktok-blanco.png"],
+        ["link" => "tel:11-5601-8912", "image" => "images/telefono-blanco.png"],
+        ["link" => "https://maps.app.goo.gl/qNqJL3g7YrWN5gr28", "image" => "images/ubicacion-blanco.png"],
     ];
 
     $productosServicios = [
@@ -439,6 +499,14 @@
 
     // Función para mostrar iconos sociales
     function mostrarIconosSociales($icons)
+    {
+        foreach ($icons as $icon) {
+            echo '<a href="' . $icon['link'] . '" target="_blank"><img src="' . $icon['image'] . '" alt="" class="icon"></a>';
+        }
+    }
+
+    // Función para mostrar iconos sociales
+    function mostrariconosSocialesBlancos($icons)
     {
         foreach ($icons as $icon) {
             echo '<a href="' . $icon['link'] . '" target="_blank"><img src="' . $icon['image'] . '" alt="" class="icon"></a>';
@@ -478,7 +546,6 @@
                 Tu navegador no es compatible con videos HTML
             </video>
             <div class="info-nuestra">
-
                 <?php
                 $titulos = ["Personal", "Servicio", "Trayectoria"];
                 foreach ($titulos as $titulo): ?>
@@ -548,19 +615,86 @@
             </div>
         </div>
 
-        <div class="socials">
+        <div class="carruseles">
             <center>
-                <h2 class="boton-titulo">Seguinos en</h2>
+                <h2 class="boton-titulo">Nuestros productos</h2>
             </center>
-            <div class="redes">
-                <div class="fb-column">
-
+            <div class="iframe-carousel">
+                <button class="carousel-btn prev" onclick="showPrevious()">&#10094;</button>
+                <div class="iframe-wrapper">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02wToBGMFr72YPERqSVyNdGBbP2vCL88x52fhskRYTrNvJJNmij2gYqzagkNTDDcBhl&width=400&show_text=false&height=795&appId" width="400" height="795"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02SyEGfacC1un8Xx66FfZkheifeenEYUyktvpChyUc6eWNUbUdVa7PvzRigfNefQiql&width=400&show_text=false&height=741&appId" width="400" height="741"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid034EJF4jmrfcwEjpJJvPaKe6YoxfsnQiZxcaiFy73m56g5dWkJRm3wr2uw3CTTTG6wl&width=400&show_text=false&height=728&appId" width="400" height="728"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid0pDLbW4nbUSYR359Xus2eSY9SZTd59AHMw2gvg3RQBqqvEk9QuijqsJXdprcBf2g7l&width=400&show_text=false&height=703&appId" width="400" height="703"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02ngSXs7AzBt8PTfwLwK1CM2VijpRSpX9bXf55YGSoHFtwJ3mtvqST3KsGbVqpzgYul&width=400&show_text=false&height=788&appId" width="400" height="788"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid0YAKgXZJzxqaVAWrTfhWh7nkUxUJYdMMAf8ZXFZdv2pPdf7v3L17Taz821eGzUkiil&width=400&show_text=false&height=691&appId" width="400" height="691"></iframe>
                 </div>
-                <div class="ig-column">
-
-                </div>
+                <button class="carousel-btn next" onclick="showNext()">&#10095;</button>
             </div>
+
+            <center>
+                <h2 class="boton-titulo">Nuestras promociones</h2>
+            </center>
+            <div class="iframe-carousel-2">
+                <button class="carousel-btn prev" onclick="showPrevious5()">&#10094;</button>
+                <div class="iframe-wrapper-2">
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid029MndJ2a6yaQHuCWub5xVSqaz4XaqNwWxhxUcSkSQ2RhuyePCcnh4pbxrKKL8gWdvl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02Y4KDZxG8dc5eimQdVSNQ7xmgsj5Tk3DkYJ3ZH5mJNkb9fWFCZxmkqh79Qa2SMETgl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid0PTLQSRR8BY3xypfyhjk2nLcpYqwiSWKKZ4ChCyYUFGr8wsZKYMr1rSQGe5NU7P4Xl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid029unX2B4y9Y6fAgS3895rcogoP2fDQyWpKTT6bFWt55XaP8eSZejJJgY9MMsHqsTkl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02A5BHNqcgq1jFKFYeqG7CwTRGXVeuw7prihVXqhfp873X4NkSUKKkrRCmcWf9YUmtl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
+                </div>
+                <button class="carousel-btn next" onclick="showNext5()">&#10095;</button>
+            </div>
+
+            <script>
+                // primer carrusel
+                let currentIndex = 0;
+                const iframes = document.querySelectorAll('.iframe-wrapper iframe');
+
+                function showIframe(index) {
+                    const offset = index * -100 / 3; // Desplazamiento en tercios
+                    document.querySelector('.iframe-wrapper').style.transform = `translateX(${offset}%)`;
+                }
+
+                function showNext() {
+                    currentIndex = (currentIndex + 1) % iframes.length; // Ciclo de índices
+                    showIframe(currentIndex);
+                    
+                }
+
+                function showPrevious() {
+                    currentIndex = (currentIndex - 1 + iframes.length) % iframes.length; // Ciclo de índices
+                    showIframe(currentIndex);
+                }
+
+                // Inicializa el primer conjunto de iframes visible
+                showIframe(currentIndex);
+
+                // segundo carrusel
+                let currentIndex5 = 0;
+                const iframes5 = document.querySelectorAll('.iframe-wrapper-2 iframe');
+
+                function showIframe5(index) {
+                    const offset = index * -100 / 3; // Desplazamiento en tercios
+                    document.querySelector('.iframe-wrapper-2').style.transform = `translateX(${offset}%)`;
+                }
+
+                function showNext5() {
+                    currentIndex5 = (currentIndex5 + 1) % iframes5.length; // Ciclo de índices
+                    showIframe5(currentIndex5);
+                }
+
+                function showPrevious5() {
+                    currentIndex5 = (currentIndex5 - 1 + iframes5.length) % iframes5.length; // Ciclo de índices
+                    showIframe5(currentIndex5);
+                }
+
+                // Inicializa el segundo conjunto de iframes visible
+                showIframe5(currentIndex5);
+            </script>
         </div>
+
     </main>
 
     <footer>
@@ -571,8 +705,8 @@
                 <img src="images/marcas.png" class="marcas" alt="">
                 <img src="images/marcas2.png" class="marcas2" alt="">
             </div>
-            <section class="icons-social">
-                <?php mostrarIconosSociales($iconosSociales); ?>
+            <section class="icons-social-blancos">
+                <?php mostrariconosSocialesBlancos($iconosSocialesBlancos); ?>
             </section>
         </center>
 
