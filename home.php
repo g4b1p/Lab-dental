@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab Dental Congreso</title>
-    <link rel="icon" href="images/logo1.png">
+    
 </head>
 
 <style>
