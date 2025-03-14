@@ -138,6 +138,46 @@
         border-radius: 50px;
         margin: auto;
     }
+
+    .productos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .producto {
+        position: relative;
+        width: 400px;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .producto-imagen {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .ver-mas {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        color: #000;
+        padding: 10px 0;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    .producto:hover .ver-mas {
+        opacity: 1;
+    }
 </style>
 
 <body>
@@ -169,7 +209,9 @@
     </div>
 
     <div class="sobre-nosotros">
-        <center><h2 class="boton-titulo">Sobre nosotros</h2></center>
+        <center>
+            <h2 class="boton-titulo">Sobre nosotros</h2>
+        </center>
         <div class="datos">
             <div class="dato">
                 <img src="images/icon1.png" alt="">
@@ -190,6 +232,40 @@
                 <p>Altamente capacitado cumple con los más altos estándares de calidad en los trabajos, lo que se traduce en la obtención de los mejores resultados.</p>
             </div>
         </div>
+    </div>
+
+    <div class="nuestros-servicios">
+        <center>
+            <h2 class="boton-titulo">Nuestros servicios</h2>
+        </center>
+        <div class="productos">
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="ver-mas">Ver más</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="ver-mas">Ver más</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="ver-mas">Ver más</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="ver-mas">Ver más</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="ver-mas">Ver más</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="ver-mas">Ver más</div>
+            </div>
+
+        </div>
+
     </div>
 </body>
 
