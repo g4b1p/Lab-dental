@@ -81,27 +81,116 @@
         width: auto;
         margin: 0 5px;
     }
+
+    .portada {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagen-portada {
+        width: 100%;
+        height: auto;
+        opacity: 0.8;
+    }
+
+    .text-portada {
+        position: absolute;
+        padding: 20px 60px;
+        color: #004aad;
+        background-color: #c7eaff;
+        opacity: 0.7;
+        text-align: center;
+    }
+
+    .boton-titulo {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid #E76868;
+        border-radius: 50px;
+        background-color: transparent;
+        color: #E76868;
+        margin: 50px 0;
+    }
+
+    .datos {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dato {
+        display: inline-block;
+        text-align: center;
+        width: 400px;
+        color: #004aad;
+    }
+
+    .dato img {
+        width: 150px;
+        height: auto;
+    }
+
+    .linea-celeste {
+        background-color: #E76868;
+        height: 5px;
+        width: 50px;
+        border-radius: 50px;
+        margin: auto;
+    }
 </style>
 
 <body>
     <header>
         <nav class="menu">
-            <div class="menu-item" name="Inicio">Inicio</div>
+            <div class="menu-item">Inicio</div>
             <div class="menu-item">Nuestros servicios</div>
             <div class="menu-item">Contáctanos</div>
         </nav>
 
-        <img src="images/logo-a-color.png" class="logo-cabecera" alt="">
+        <a href="home2.php"><img src="images/logo-a-color.png" class="logo-cabecera" alt=""></a>
 
         <nav class="social-media">
-            <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta." target="_blank" ><img src="images/whatsapp-azul.png" class="social-icon" alt=""></a>
-            <a href="https://www.facebook.com/LabDentalCongreso" target="_blank" ><img src="images/facebook-azul.png" class="social-icon" alt=""></a>
-            <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la" target="_blank" ><img src="images/instagram-azul.png" class="social-icon" alt=""></a>
-            <a href="mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar..." target="_blank" ><img src="images/correo-azul.png" class="social-icon" alt=""></a>
-            <a href="tel:11-5601-8912" target="_blank" ><img src="images/telefono-azul.png" class="social-icon" alt=""></a>
-            <a href="https://maps.app.goo.gl/qNqJL3g7YrWN5gr28" target="_blank" ><img src="images/ubicacion-azul.png" class="social-icon" alt=""></a>
+            <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta." target="_blank"><img src="images/whatsapp-azul.png" class="social-icon" alt=""></a>
+            <a href="https://www.facebook.com/LabDentalCongreso" target="_blank"><img src="images/facebook-azul.png" class="social-icon" alt=""></a>
+            <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la" target="_blank"><img src="images/instagram-azul.png" class="social-icon" alt=""></a>
+            <a href="mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar..." target="_blank"><img src="images/correo-azul.png" class="social-icon" alt=""></a>
+            <a href="tel:11-5601-8912" target="_blank"><img src="images/telefono-azul.png" class="social-icon" alt=""></a>
+            <a href="https://maps.app.goo.gl/qNqJL3g7YrWN5gr28" target="_blank"><img src="images/ubicacion-azul.png" class="social-icon" alt=""></a>
         </nav>
     </header>
+
+    <div class="portada">
+        <img src="images/portada.png" class="imagen-portada" alt="">
+        <div class="text-portada">
+            <h1>¡Bienvenidos a LabDental Congreso!</h1>
+            <p> Somos especialistas en la fabricación y reparación de prótesis removibles. <br> Con nosotros, encontrarás soluciones dentales confiables y de calidad.</p>
+        </div>
+    </div>
+
+    <div class="sobre-nosotros">
+        <center><h2 class="boton-titulo">Sobre nosotros</h2></center>
+        <div class="datos">
+            <div class="dato">
+                <img src="images/icon1.png" alt="">
+                <h2>Trayectoria</h2>
+                <div class="linea-celeste"></div>
+                <p>Con 15 años de experiencia, hemos dedicado nuestro compromiso y profesionalidad al servicio de odontólogos, clínicas y laboratorios dentales.</p>
+            </div>
+            <div class="dato">
+                <img src="images/icon2.png" alt="">
+                <h2>Servicio</h2>
+                <div class="linea-celeste"></div>
+                <p>Nuestra metodología de trabajo garantiza entregas puntuales, lo que contribuye a reducir los costos del trabajo final.</p>
+            </div>
+            <div class="dato">
+                <img src="images/icon3.png" alt="">
+                <h2>Personal</h2>
+                <div class="linea-celeste"></div>
+                <p>Altamente capacitado cumple con los más altos estándares de calidad en los trabajos, lo que se traduce en la obtención de los mejores resultados.</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
