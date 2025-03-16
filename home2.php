@@ -135,7 +135,9 @@
 
     .imagen-portada {
         width: 100%;
-        height: auto;
+        height: 500px;
+        object-fit: cover;
+        object-position: center bottom;
         opacity: 0.8;
     }
 
@@ -409,9 +411,13 @@
         margin: 50px 0;
     }
 
-    .marcas-img {
+    .marcas-img-compu {
         width: 90%;
         margin-bottom: 30px;
+    }
+
+    .marcas-img-celu {
+        display: none;
     }
 
     .social-section {
@@ -622,7 +628,7 @@
             border-radius: 10px;
             color: #fff;
             padding: 10px;
-            font-size: 14px;
+            font-size: 13px;
             text-align: center;
             width: 80%;
             display: none;
@@ -640,7 +646,7 @@
         }
     }
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 1200px) {
 
         body {
             font-size: 17px;
@@ -668,17 +674,6 @@
             width: auto;
         }
 
-        .portada {
-            display: inline-block;
-            height: 300px;
-        }
-
-        .text-portada {
-            justify-content: center;
-            position: static;
-            opacity: 1;
-        }
-
         .datos {
             flex-direction: column;
             display: flex;
@@ -690,17 +685,60 @@
         }
 
         .producto {
-            width: 40%;
+            width: 45%;
+        }
+
+        .turno-btn {
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .saber-mas {
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .overlay {
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .galeria-casos video {
+            width: 90%;
+        }
+
+        .marcas-img-compu {
+            display: none;
+        }
+
+        .marcas-img-celu {
+            display: block;
+            width: 90%;
+            margin-bottom: 50px;
         }
     }
 
     @media screen and (max-width: 900px) {
-        
-    }
-
-    @media screen and (max-width: 600px) {
         body {
-            font-size: 17px;
+            font-size: 20px;
+        }
+
+        .portada {
+            display: inline-block;
+        }
+
+        .imagen-portada {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center bottom;
+            opacity: 0.8;
+        }
+
+        .text-portada {
+            justify-content: center;
+            position: static;
+            opacity: 1;
         }
 
         .productos {
@@ -709,6 +747,11 @@
 
         .producto {
             width: 100%;
+        }
+
+        .overlay {
+            padding: 15px;
+            font-size: 20px;
         }
 
         .info-contacto {
@@ -724,6 +767,67 @@
             width: 100%;
         }
 
+        .chat-button {
+            font-size: 20px;
+        }
+
+        .chat-container {
+            width: 450px;
+        }
+
+        .chat-header {
+            background: #f27c7c;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            margin-top: 10px;
+            font-size: 25px;
+        }
+
+        .close-chat {
+            padding: 20px;
+        }
+
+        .status {
+            font-size: 20px;
+        }
+
+        .chat-message {
+            font-size: 20px;
+        }
+
+        .chat-footer {
+            padding: 20px 10px;
+        }
+
+        .chat-footer input {
+            font-size: 20px;
+        }
+
+        .send-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .marcas-img-celu {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .menu a {
+            font-size: 18px;
+        }
+
+        .menu-item {
+            padding: 3px 5px;
+        }
     }
 </style>
 
@@ -748,7 +852,7 @@
     </header>
 
     <div class="portada">
-        <img src="images/portada.png" class="imagen-portada" alt="">
+        <img src="images/image1.png" class="imagen-portada" alt="">
         <div class="text-portada">
             <h1>¡Bienvenidos a LabDental Congreso!</h1>
             <p> Somos especialistas en la fabricación y reparación de prótesis removibles. <br> Con nosotros, encontrarás soluciones dentales confiables y de calidad.</p>
@@ -794,7 +898,7 @@
                     SABER MÁS
                 </label>
                 <div class="overlay">
-                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía.
                 </div>
                 <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
                     <div class="turno-btn">SOLICITAR TURNO</div>
@@ -966,7 +1070,11 @@
         <center>
             <h2 class="boton-titulo-footer">Trabajamos con las mejores marcas y proveedores</h2>
         </center>
-        <img src="images/marcas-compu.png" class="marcas-img" alt="">
+
+        <center>
+            <img src="images/marcas-compu.png" class="marcas-img-compu" alt="">
+            <img src="images/marcas-celular.png" class="marcas-img-celu" alt="">
+        </center>
 
         <center>
             <div class="social-section">
