@@ -18,6 +18,7 @@
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
         background-color: #c7eaff;
+        overflow-x: hidden;
     }
 
     @keyframes fadeIn {
@@ -327,9 +328,9 @@
 
     .carrusel {
         position: relative;
-        width: 100%;
         margin: 0 auto;
-        overflow: hidden;
+        overflow: visible;
+        width: 90%;
     }
 
     .carrusel-contenedor {
@@ -351,37 +352,29 @@
         transform: translateX(0);
     }
 
-    /* Estado 2 (slide2): se desplaza un 33.333% a la izquierda
-   mostrando image2, image3, image4 */
+    /* Estado 2 (slide2): se desplaza un 33.333% a la izquierda mostrando image2, image3, image4 */
     #slide2:checked~.carrusel-contenedor {
         transform: translateX(-33.333%);
     }
 
-    /* Flechas: posicionadas fuera del carrusel */
     .flecha {
-        /*position: absolute;
-        top: 50%;*/
+        position: absolute;
+        top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
         display: none;
-        /**/
     }
 
     .flecha img {
         width: 50px;
     }
 
-    /* Flechas a la izquierda y derecha, fuera del contenedor */
     .flecha-izq {
-        position: absolute;
-        right: 95%;
-        top: 50%;
+        left: -50px;
     }
 
     .flecha-der {
-        position: absolute;
-        left: 95%;
-        top: 50%;
+        right: -50px;
     }
 
     /* Muestra las flechas para slide1 */
@@ -391,6 +384,16 @@
 
     /* Muestra las flechas para slide2 */
     #slide2:checked~.flecha2 {
+        display: block;
+    }
+
+    /* Muestra las flechas para slide3 */
+    #slide3:checked~.flecha3 {
+        display: block;
+    }
+
+    /* Muestra las flechas para slide4 */
+    #slide4:checked~.flecha4 {
         display: block;
     }
 
@@ -707,6 +710,19 @@
             width: 90%;
         }
 
+        .item {
+            width: calc(100% / 2);
+            flex-shrink: 0;
+        }
+
+        #slide2:checked~.carrusel-contenedor {
+            transform: translateX(-50%);
+        }
+
+        #slide3:checked~.carrusel-contenedor {
+            transform: translateX(-100%);
+        }
+
         .marcas-img-compu {
             display: none;
         }
@@ -765,6 +781,23 @@
 
         .galeria-casos video {
             width: 100%;
+        }
+
+        .item {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        #slide2:checked~.carrusel-contenedor {
+            transform: translateX(-100%);
+        }
+
+        #slide3:checked~.carrusel-contenedor {
+            transform: translateX(-200%);
+        }
+
+        #slide4:checked~.carrusel-contenedor {
+            transform: translateX(-300%);
         }
 
         .chat-button {
@@ -1036,9 +1069,12 @@
         </center>
 
         <div class="carrusel">
-            <!-- Radio buttons para controlar los estados -->
             <input type="radio" name="slides" id="slide1" checked>
             <input type="radio" name="slides" id="slide2">
+
+            <input type="radio" name="slides" id="slide3">
+
+            <input type="radio" name="slides" id="slide4">
 
             <div class="carrusel-contenedor">
                 <img src="images/image1.png" class="item" alt="">
@@ -1047,7 +1083,7 @@
                 <img src="images/image4.png" class="item" alt="">
             </div>
 
-            <!-- Flechas para el primer estado (slide1) -->
+            <!-- slide1 -->
             <label for="slide2" class="flecha flecha-izq flecha1">
                 <img src="images/izquierda.png" alt="Ir a la segunda vista">
             </label>
@@ -1055,13 +1091,30 @@
                 <img src="images/derecha.png" alt="Ir a la segunda vista">
             </label>
 
-            <!-- Flechas para el segundo estado (slide2) -->
-            <label for="slide1" class="flecha flecha-izq flecha2">
-                <img src="images/izquierda.png" alt="Regresar a la primera vista">
+            <!-- slide2 -->
+            <label for="slide3" class="flecha flecha-izq flecha2">
+                <img src="images/izquierda.png" alt="Ir a la tercera vista">
             </label>
-            <label for="slide1" class="flecha flecha-der flecha2">
-                <img src="images/derecha.png" alt="Regresar a la primera vista">
+            <label for="slide3" class="flecha flecha-der flecha2">
+                <img src="images/derecha.png" alt="Ir a la tercera vista">
             </label>
+
+            <!-- slide3 -->
+            <label for="slide4" class="flecha flecha-izq flecha3">
+                <img src="images/izquierda.png" alt="Volver a la segunda vista">
+            </label>
+            <label for="slide4" class="flecha flecha-der flecha3">
+                <img src="images/derecha.png" alt="Volver a la segunda vista">
+            </label>
+
+            <!-- slide4 -->
+            <label for="slide1" class="flecha flecha-izq flecha4">
+                <img src="images/izquierda.png" alt="Volver a la segunda vista">
+            </label>
+            <label for="slide1" class="flecha flecha-der flecha4">
+                <img src="images/derecha.png" alt="Volver a la segunda vista">
+            </label>
+
         </div>
 
     </div>
