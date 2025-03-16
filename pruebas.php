@@ -144,9 +144,158 @@
         cursor: pointer;
         margin-left: 10px;
     }
+
+
+
+
+    .nuestros-servicios {
+        padding: 0 5%;
+        margin-bottom: 5%;
+    }
+
+    .productos {
+        display: flex;
+        flex-wrap: wrap;
+        /* los productos pasan a la siguiente línea si no caben en el ancho de la pantalla */
+        justify-content: center;
+        gap: 20px;
+        /* agrega un espacio de 20px entre cada producto */
+    }
+
+    .producto {
+        position: relative;
+        /* permite posicionar elementos hijos de forma absoluta dentro de este contenedor */
+        width: 30%;
+        height: auto;
+    }
+
+    .producto-imagen {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .turno-btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        background: #a6a6a6;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0 0 0 10px;
+        font-weight: bold;
+        border-right: 2px solid #fff;
+    }
+
+    .saber-mas {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 40%;
+        background: #a6a6a6;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0 0 10px 0;
+        font-weight: bold;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        color: #fff;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        width: 80%;
+        opacity: 0;
+        display: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .checkbox {
+        display: none;
+    }
+
+    /* Mostrar el texto cuando el checkbox esté marcado */
+    .checkbox:checked+.saber-mas+.overlay {
+        display: block;
+        opacity: 1;
+
+    }
+
 </style>
 
 <body>
+
+    <div class="nuestros-servicios" id="nuestros-servicios">
+        <center>
+            <h2 class="boton-titulo">Nuestros servicios</h2>
+        </center>
+        <div class="productos">
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle" class="checkbox">
+                <label for="toggle" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
+            </div>
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
+            </div>
+
+        </div>
+
+    </div>
+
 
     <!-- Botón para abrir el chat -->
     <input type="checkbox" id="chat-toggle" class="chat-toggle">
