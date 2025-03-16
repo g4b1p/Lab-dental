@@ -14,12 +14,48 @@
 
     body {
         margin: 0;
-        padding: 0;
         font-size: 18px;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
-        padding: 0 5%;
         background-color: #c7eaff;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100%);
+            /* Empieza desde fuera de la pantalla, a la izquierda */
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            /* Llega a su posición original */
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            /* Empieza desde fuera de la pantalla, a la izquierda */
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            /* Llega a su posición original */
+            opacity: 1;
+        }
     }
 
     header {
@@ -28,19 +64,24 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0 5%;
+        animation: fadeIn 2s ease-in-out;
     }
 
     .menu {
         background-color: #004aad;
         border-radius: 20px;
         display: flex;
+    }
 
+    .menu a {
+        text-decoration: none;
+        color: #fff;
     }
 
     .menu-item {
         padding: 3px 15px;
         margin: 8px;
-        color: #fff;
         position: relative;
         cursor: pointer;
         z-index: 2;
@@ -66,7 +107,7 @@
         opacity: 1;
     }
 
-    .menu-item:hover {
+    .menu-item a:hover {
         color: #000;
     }
 
@@ -86,6 +127,9 @@
         position: relative;
         align-items: center;
         justify-content: center;
+        padding: 0 5%;
+        margin-bottom: 5%;
+        animation: slideInRight 1.9s ease-out;
     }
 
     .imagen-portada {
@@ -111,6 +155,12 @@
         background-color: transparent;
         color: #E76868;
         margin: 50px 0;
+    }
+
+    .sobre-nosotros {
+        padding: 0 5%;
+        margin-bottom: 5%;
+        animation: slideInLeft 1.9s ease-out;
     }
 
     .datos {
@@ -139,6 +189,11 @@
         margin: auto;
     }
 
+    .nuestros-servicios {
+        padding: 0 5%;
+        margin-bottom: 5%;
+    }
+
     .productos {
         display: flex;
         flex-wrap: wrap;
@@ -151,7 +206,7 @@
     .producto {
         position: relative;
         /* permite posicionar elementos hijos de forma absoluta dentro de este contenedor */
-        width: 400px;
+        width: 30%;
         height: auto;
     }
 
@@ -171,28 +226,43 @@
         padding: 10px 0;
         text-align: center;
         cursor: pointer;
+        border-radius: 10px;
         opacity: 0;
-        transition: opacity 0.4s ease-in-out;
+        font-weight: bold;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        color: #fff;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        width: 80%;
+        opacity: 0;
+        transition: opacity 0.4s ease;
     }
 
     .producto:hover .ver-mas {
         opacity: 1;
     }
 
-    .producto::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0);
-        transition: background 0.4s ease-in-out;
+    .producto:hover .overlay {
+        opacity: 1;
     }
 
-    .producto:hover::after {
-        background: rgba(0, 0, 0, 0.2);
+    .producto:hover .producto-imagen {
+        opacity: 0.7;
+    }
+
+    .contactanos {
+        padding: 0 5%;
+        margin-bottom: 5%;
     }
 
     .info-contacto {
@@ -239,6 +309,11 @@
         height: auto;
     }
 
+    .galeria-casos {
+        padding: 0 5%;
+        margin-bottom: 5%;
+    }
+
     .carrusel {
         position: relative;
         width: 100%;
@@ -256,7 +331,7 @@
         flex-shrink: 0;
     }
 
-    input {
+    .carrusel input {
         display: none;
     }
 
@@ -312,6 +387,7 @@
         background-color: #E76868;
         text-align: center;
         color: #fff;
+        padding: 0 5%;
     }
 
     .boton-titulo-footer {
@@ -326,6 +402,7 @@
 
     .marcas-img {
         width: 90%;
+        margin-bottom: 30px;
     }
 
     .social-section {
@@ -333,17 +410,172 @@
         border-radius: 50px;
         display: inline-block;
         padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    footer p {
+        margin: 30px 0;
+    }
+
+    .gabi-coder-img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Checkbox oculto */
+    .chat-toggle {
+        display: none;
+    }
+
+    /* Estilos del botón flotante */
+    .chat-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #f27c7c;
+        border: 3px solid #fff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        animation: slideInRight 1.5s ease-out;
+    }
+
+    .chat-button img {
+        width: 30px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .chat-button:hover {
+        background: #e06464;
+    }
+
+    /* Contenedor del chat */
+    .chat-container {
+        width: 360px;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+    }
+
+    /* Mostrar chat cuando el checkbox está activo */
+    .chat-toggle:checked~.chat-container {
+        display: flex;
+    }
+
+    /* Encabezado del chat */
+    .chat-header {
+        background: #f27c7c;
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        /* Alinear verticalmente */
+        gap: 8px;
+        /* Espacio entre la imagen y el nombre */
+        border-radius: 15px 15px 0 0;
+        position: relative;
+        /* Necesario para mover la "X" */
+    }
+
+    .chat-header h3 {
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .chat-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .status {
+        font-size: 12px;
+    }
+
+    /* Botón de cerrar el chat */
+    .close-chat {
+        position: absolute;
+        top: 5px;
+        /* Mover más arriba */
+        right: 10px;
+        /* Ajustar la posición a la derecha */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
     }
 
 
+    /* Ocultar chat cuando se cierra */
+    .chat-toggle:not(:checked)~.chat-container {
+        display: none;
+    }
+
+    /* Cuerpo del chat */
+    .chat-body {
+        background: #cbe7ff;
+        padding: 25px 15px;
+    }
+
+    .chat-message {
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    /* Pie del chat */
+    .chat-footer {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: #f1f1f1;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .chat-footer input {
+        flex: 1;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: gray;
+        background: #e0e0e0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .send-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
 </style>
 
 <body>
     <header>
         <nav class="menu">
-            <div class="menu-item">Inicio</div>
-            <div class="menu-item">Nuestros servicios</div>
-            <div class="menu-item">Contáctanos</div>
+            <div class="menu-item"><a href="home2.php">Inicio</a></div>
+            <div class="menu-item"><a href="#nuestros-servicios">Nuestros servicios</a></div>
+            <div class="menu-item"><a href="#contactanos">Contáctanos</a></div>
         </nav>
 
         <a href="home2.php"><img src="images/logo-a-color.png" class="logo-cabecera" alt=""></a>
@@ -392,47 +624,69 @@
         </div>
     </div>
 
-    <div class="nuestros-servicios">
+    <div class="nuestros-servicios" id="nuestros-servicios">
         <center>
             <h2 class="boton-titulo">Nuestros servicios</h2>
         </center>
         <div class="productos">
+
             <div class="producto">
                 <img src="images/image1.png" class="producto-imagen" alt="">
-                <div class="ver-mas"><b>VER MÁS</b></div>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="ver-mas">SOLICITAR TURNO</div>
+                </a>
+
             </div>
             <div class="producto">
                 <img src="images/image1.png" class="producto-imagen" alt="">
-                <div class="ver-mas"><b>VER MÁS</b></div>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
             </div>
             <div class="producto">
                 <img src="images/image1.png" class="producto-imagen" alt="">
-                <div class="ver-mas"><b>VER MÁS</b></div>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
             </div>
             <div class="producto">
                 <img src="images/image1.png" class="producto-imagen" alt="">
-                <div class="ver-mas"><b>VER MÁS</b></div>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
             </div>
             <div class="producto">
                 <img src="images/image1.png" class="producto-imagen" alt="">
-                <div class="ver-mas"><b>VER MÁS</b></div>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
             </div>
             <div class="producto">
                 <img src="images/image1.png" class="producto-imagen" alt="">
-                <div class="ver-mas"><b>VER MÁS</b></div>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía. No requiere ningún retenedor metálico, es de un solo material y su función es abrazarse y sujetarse de los dientes y encía, por esa razón se recomienda en pacientes que aún tienen varios dientes.
+                </div>
+                <div class="ver-mas">SOLICITAR TURNO</div>
             </div>
 
         </div>
 
     </div>
 
-    <div class="contactanos">
+    <div class="contactanos" id="contactanos">
         <center>
             <h2 class="boton-titulo">Contáctanos</h2>
         </center>
         <div class="info-contacto">
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.8584873610855!2d-58.390237967233354!3d-34.61132111254023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda694bff709%3A0xd9c8fb2ea844c65c!2sLaboratorio%20Dental%20Congreso!5e0!3m2!1ses!2sar!4v1742055200765!5m2!1ses!2sar" width="700" height="778" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.8584873610855!2d-58.390237967233354!3d-34.61132111254023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda694bff709%3A0xd9c8fb2ea844c65c!2sLaboratorio%20Dental%20Congreso!5e0!3m2!1ses!2sar!4v1742055200765!5m2!1ses!2sar" width="100%" height="778" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             <div class="datos-contacto">
                 <div class="dato-contacto">
@@ -475,7 +729,7 @@
             <h2 class="boton-titulo">Galeria de casos</h2>
         </center>
         <center>
-            <video width="900" height="900" autoplay muted loop controls>
+            <video width="60%" height="60%" autoplay muted loop controls>
                 <source src="" type="video/mp4">
                 <source src="images/LabDental.mp4" type="video/mp4">
                 Tu navegador no es compatible con videos HTML
@@ -518,23 +772,78 @@
             <h2 class="boton-titulo-footer">Trabajamos con las mejores marcas y proveedores</h2>
         </center>
         <img src="images/marcas-compu.png" class="marcas-img" alt="">
-        <div class="social-section">
-            <img src="images/whatsapp-blanco.png" class="social-icon" alt="">
-            <img src="images/facebook-blanco.png" class="social-icon" alt="">
-            <img src="images/instagram-blanco.png" class="social-icon" alt="">
-            <img src="images/correo-blanco.png" class="social-icon" alt="">
-            <img src="images/telefono-blanco.png" class="social-icon" alt="">
-            <img src="images/ubicacion-blanco.png" class="social-icon" alt="">
-        </div>
+
+        <center>
+            <div class="social-section">
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta."><img src="images/whatsapp-blanco.png" class="social-icon" alt=""></a>
+                <a href="https://www.facebook.com/LabDentalCongreso"><img src="images/facebook-blanco.png" class="social-icon" alt=""></a>
+                <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la"><img src="images/instagram-blanco.png" class="social-icon" alt=""></a>
+                <a href="mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar..."><img src="images/correo-blanco.png" class="social-icon" alt=""></a>
+                <a href="tel:11-5601-8912"><img src="images/telefono-blanco.png" class="social-icon" alt=""></a>
+                <a href="https://maps.app.goo.gl/qNqJL3g7YrWN5gr28"><img src="images/ubicacion-blanco.png" class="social-icon" alt=""></a>
+            </div>
+        </center>
+
 
         <p>Laboratorio Dental Congreso © Copyright 2025. Todos los derechos reservados.</p>
 
         <div class="gabi-coder">
             <p>Created by</p>
-            
+            <img src="images/logo-gabi.png" class="gabi-coder-img" alt="">
         </div>
 
     </footer>
+
+    <div class="chat-whatsapp">
+        <!-- Botón para abrir el chat -->
+        <input type="checkbox" id="chat-toggle" class="chat-toggle">
+        <label for="chat-toggle" class="chat-button">
+            <img src="images/whatsapp-blanco.png" alt="">
+            Haz click aquí para comunicarte
+        </label>
+
+        <!-- Contenedor del chat -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <img src="images/logo-a-color.png" alt="Lab Dental Congreso" class="chat-logo">
+                <div>
+                    <h3>Lab Dental Congreso</h3>
+                    <span class="status">Online</span>
+                </div>
+                <label for="chat-toggle" class="close-chat">&times;</label>
+            </div>
+            <div class="chat-body">
+                <div class="chat-message">
+                    <span class="emoji">📋</span> Hola <span class="emoji">👋</span>, bienvenido a
+                    <b><i>Lab Dental Congreso</i></b>.
+                    <p>¿En qué podemos ayudarte?</p>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="user-message" placeholder="Hola! Vengo de la página web...">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+            <script>
+                function sendMessage() {
+                    // Obtener el valor del campo de texto
+                    var message = document.getElementById("user-message").value;
+
+                    // Codificar el mensaje para que sea seguro en la URL
+                    var encodedMessage = encodeURIComponent(message);
+
+                    // Construir el enlace de WhatsApp con el mensaje del usuario
+                    var whatsappUrl = "https://api.whatsapp.com/send?phone=%2B541156018912&text=" + encodedMessage;
+
+                    // Abrir el enlace en una nueva ventana
+                    window.open(whatsappUrl, "_blank");
+
+                    // Limpiar el campo de texto después de enviar el mensaje
+                    document.getElementById("user-message").value = "";
+                }
+            </script>
+
+        </div>
+    </div>
 </body>
 
 </html>

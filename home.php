@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab Dental Congreso</title>
-    
+
 </head>
 
 <style>
@@ -660,7 +660,7 @@
                 function showNext() {
                     currentIndex = (currentIndex + 3) % iframes.length; // Ciclo de índices
                     showIframe(currentIndex);
-                    
+
                 }
 
                 function showPrevious() {
@@ -716,6 +716,56 @@
             <img src="images/icon-whats.png" class="images" style="width: 80px; height: auto; margin: 10px; position: fixed; bottom: 10px; right: 10px;">
         </a>
     </footer>
+
+    <div>
+        <!-- Botón para abrir el chat -->
+        <input type="checkbox" id="chat-toggle" class="chat-toggle">
+        <label for="chat-toggle" class="chat-button">
+            💬 Haz click aquí para comunicarte
+        </label>
+
+        <!-- Contenedor del chat -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <img src="images/logo-a-color.png" alt="Lab Dental Congreso" class="chat-logo">
+                <div>
+                    <h3>Lab Dental Congreso</h3>
+                    <span class="status">Online</span>
+                </div>
+                <label for="chat-toggle" class="close-chat">&times;</label>
+            </div>
+            <div class="chat-body">
+                <div class="chat-message">
+                    <span class="emoji">📋</span> Hola <span class="emoji">👋</span>, bienvenido a
+                    <b><i>Lab Dental Congreso</i></b>.
+                    <p>¿En qué podemos ayudarte?</p>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="user-message" placeholder="Hola! Vengo de la página web...">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+            <script>
+                function sendMessage() {
+                    // Obtener el valor del campo de texto
+                    var message = document.getElementById("user-message").value;
+
+                    // Codificar el mensaje para que sea seguro en la URL
+                    var encodedMessage = encodeURIComponent(message);
+
+                    // Construir el enlace de WhatsApp con el mensaje del usuario
+                    var whatsappUrl = "https://api.whatsapp.com/send?phone=%2B541156018912&text=" + encodedMessage;
+
+                    // Abrir el enlace en una nueva ventana
+                    window.open(whatsappUrl, "_blank");
+
+                    // Limpiar el campo de texto después de enviar el mensaje
+                    document.getElementById("user-message").value = "";
+                }
+            </script>
+
+        </div>
+    </div>
 </body>
 
 </html>
