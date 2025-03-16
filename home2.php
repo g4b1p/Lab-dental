@@ -689,33 +689,41 @@
             margin: 20px;
         }
 
-        .turno-btn {
-            font-size: 16px;
-        }
-
-        .saber-mas {
-            font-size: 16px;
+        .producto {
+            width: 40%;
         }
     }
 
     @media screen and (max-width: 900px) {
-        body {
-            font-size: 16px;
-        }
-
-        .turno-btn {
-            font-size: 14px;
-        }
-
-        .saber-mas {
-            font-size: 14px;
-        }
+        
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 600px) {
         body {
-            font-size: 13px;
+            font-size: 17px;
         }
+
+        .productos {
+            flex-direction: column;
+        }
+
+        .producto {
+            width: 100%;
+        }
+
+        .info-contacto {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .datos-contacto {
+            width: 100%;
+        }
+
+        .galeria-casos video {
+            width: 100%;
+        }
+
     }
 </style>
 
