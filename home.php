@@ -2,128 +2,159 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab Dental Congreso</title>
 
+    <link rel="icon" href="images/logo-a-color.png">
 </head>
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-    * {
+    body {
         margin: 0;
-        padding: 0;
+        font-size: 18px;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+        background-color: #c7eaff;
+        overflow-x: hidden;
     }
 
-    body {
-        background-color: #C7EAFF;
+    html {
+        overflow-x: hidden;
     }
 
-    main p {
-        font-size: 20px;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
-    /*header*/
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100%);
+            /* Empieza desde fuera de la pantalla, a la izquierda */
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            /* Llega a su posición original */
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            /* Empieza desde fuera de la pantalla, a la izquierda */
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            /* Llega a su posición original */
+            opacity: 1;
+        }
+    }
+
     header {
+        height: auto;
+        width: auto;
         display: flex;
         align-items: center;
-        flex-direction: column;
-        margin-top: 20px;
+        justify-content: space-between;
+        padding: 0 5%;
+        animation: fadeIn 2s ease-in-out;
     }
 
-    header p {
-        color: #004AAD;
-        font-size: 20px;
-    }
-
-    .icon {
-        width: 45px;
-        height: auto;
-        margin: 0 15px;
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
-
-    .logo {
-        width: 190px;
-        height: auto;
-        margin: 10px;
-    }
-
-    .icons-social {
+    .menu {
+        background-color: #004aad;
+        border-radius: 20px;
         display: flex;
-        border: 2px solid #E76868;
-        border-radius: 30px;
-        background-color: transparent;
-        justify-content: center;
-        width: 450px;
-        margin: 15px 0;
     }
 
-    /*portada*/
+    .menu a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .menu-item {
+        padding: 3px 15px;
+        margin: 8px;
+        position: relative;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .menu-item::after {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0;
+        transition: top 0.5s, opacity 0.5s;
+    }
+
+    .menu-item:hover::after {
+        top: 50%;
+        opacity: 1;
+    }
+
+    .menu-item a:hover {
+        color: #000;
+    }
+
+    .logo-cabecera {
+        height: 150px;
+        width: auto;
+        margin: 20px 0;
+    }
+
+    .social-icon {
+        height: auto;
+        width: 45px;
+        margin: 0 5px;
+    }
+
     .portada {
         display: flex;
-        align-items: flex-end;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5%;
+        margin-bottom: 5%;
+        animation: slideInRight 1.9s ease-out;
     }
 
-    .portada img {
+    .imagen-portada {
         width: 100%;
-        height: auto;
+        height: 500px;
+        object-fit: cover;
+        object-position: center bottom;
+        opacity: 0.8;
     }
 
     .text-portada {
         position: absolute;
-        background-color: #C7EAFF;
+        padding: 20px 60px;
+        color: #004aad;
+        background-color: #c7eaff;
         opacity: 0.7;
-        padding: 40px;
+        text-align: center;
     }
 
-    .text-portada p {
-        color: #004AAD;
-        font-size: 20px;
-    }
-
-    .text-portada h1 {
-        color: #004AAD;
-        font-size: 40px;
-    }
-
-    /*video y info*/
-    .video-info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 2% 9%;
-    }
-
-    .info-nuestra {
-        padding: 0 80px;
-    }
-
-    .dato {
-        max-width: 450px;
-        margin: 25px 0;
-    }
-
-    .linea-celeste {
-        margin: 6px;
-        width: 50px;
-        height: 4px;
-        background-color: #E76868;
-        border-radius: 10px;
-    }
-
-    .info-nuestra p {
-        color: #004AAD;
-    }
-
-    .info-nuestra h1 {
-        color: #004AAD;
-    }
-
-    /*titulos globos*/
     .boton-titulo {
         display: inline-block;
         padding: 10px 20px;
@@ -131,143 +162,250 @@
         border-radius: 50px;
         background-color: transparent;
         color: #E76868;
-        margin-bottom: 30px;
+        margin: 50px 0;
     }
 
-    /*Productos y servicios*/
-    .servicios {
-        background-color: #004AAD;
-        padding: 2% 0;
+    .sobre-nosotros {
+        padding: 0 5%;
+        margin-bottom: 5%;
+        animation: slideInLeft 1.9s ease-out;
     }
 
-    .icon-check {
-        width: 30px;
+    .datos {
+        display: flex;
+        /*flex-wrap: wrap;*/
+        justify-content: space-between;
+    }
+
+    .dato {
+        display: inline-block;
+        text-align: center;
+        width: 400px;
+        color: #004aad;
+    }
+
+    .dato img {
+        width: 150px;
         height: auto;
-        margin: 10px;
+    }
+
+    .linea-celeste {
+        background-color: #E76868;
+        height: 5px;
+        width: 50px;
+        border-radius: 50px;
+        margin: auto;
+    }
+
+    .nuestros-servicios {
+        padding: 0 5%;
+        margin-bottom: 5%;
     }
 
     .productos {
         display: flex;
+        flex-wrap: wrap;
+        /* los productos pasan a la siguiente línea si no caben en el ancho de la pantalla */
         justify-content: center;
+        gap: 20px;
+        /* agrega un espacio de 20px entre cada producto */
     }
 
-    .productos-check {
-        display: flex;
-        align-items: center;
-    }
-
-    .servicios p {
-        color: #fff;
-    }
-
-    .servicios h2 {
-        color: #E76868;
-    }
-
-    /*contacto*/
-    .contactos {
-        margin: 2% 9%;
-    }
-
-    .datos-contacto {
-        display: flex;
-        justify-content: center;
-    }
-
-    .icon-contacto {
-        width: 60px;
+    .producto {
+        position: relative;
+        /* permite posicionar elementos hijos de forma absoluta dentro de este contenedor */
+        width: 30%;
         height: auto;
-        margin: 6px 10px;
+    }
+
+    .producto-imagen {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .turno-btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #a6a6a6;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0 0 10px 10px;
+        opacity: 0;
+        font-weight: bold;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .saber-mas {
+        display: none;
+    }
+
+    .checkbox {
+        display: none;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+        color: #fff;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        width: 80%;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .producto:hover .turno-btn {
+        opacity: 1;
+    }
+
+    .producto:hover .overlay {
+        opacity: 1;
+    }
+
+    .producto:hover .producto-imagen {
+        opacity: 0.7;
+    }
+
+    .contactanos {
+        padding: 0 5%;
+        margin-bottom: 5%;
     }
 
     .info-contacto {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        justify-content: center;
+        margin: auto;
         align-items: center;
     }
 
-    .info-contacto p {
-        color: #004AAD;
+    .datos-contacto {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        text-align: center;
     }
 
-    .datos-contacto iframe {
-        width: 600px;
-        height: 500px;
+    .full-dato-contacto {
+        grid-column: span 2;
+        background-color: #E76868;
+        color: #c7eaff;
+        padding: 30px 0;
     }
 
-    .QR {
-        width: 170px;
-        margin: 30px 10px;
+    .dato-contacto {
+        background-color: #E76868;
+        color: #c7eaff;
+        padding: 30px 0;
     }
 
-    /* Carruseles */
-    .carruseles {
-        margin: 2% 9%;
+    .dato-contacto h4,
+    p {
+        margin: 5px 0;
     }
 
-    .iframe-carousel,
-    .iframe-carousel-2 {
+    .full-dato-contacto h4,
+    p {
+        margin: 5px 0;
+    }
+
+    .icon-contacto {
+        width: 50px;
+        height: auto;
+    }
+
+    .galeria-casos {
+        padding: 0 5%;
+        margin-bottom: 5%;
+    }
+
+    .carrusel {
         position: relative;
-        width: 100%;
-        max-width: 1200px;
-        /* Ancho máximo del carrusel */
-        margin: auto;
-        overflow: hidden;
-        /* Esconde el contenido que se desborda */
+        margin: 0 auto;
+        overflow: visible;
+        width: 90%;
     }
 
-    .iframe-wrapper,
-    .iframe-wrapper-2 {
+    .carrusel-contenedor {
         display: flex;
         transition: transform 0.5s ease-in-out;
-        /* Transición suave para el desplazamiento */
     }
 
-    .iframe-wrapper iframe,
-    .iframe-wrapper-2 iframe {
-        min-width: 33.33%;
-        /* Un tercio del ancho total para cada iframe */
-        border: none;
-        /* Sin borde en los iframes */
+    .item {
+        width: calc(100% / 3);
+        flex-shrink: 0;
     }
 
-    /* Estilo para los botones de navegación */
-    .carousel-btn {
+    .carrusel input {
+        display: none;
+    }
+
+    /* Estado 1 (slide1): se ve image1, image2, image3 */
+    #slide1:checked~.carrusel-contenedor {
+        transform: translateX(0);
+    }
+
+    /* Estado 2 (slide2): se desplaza un 33.333% a la izquierda mostrando image2, image3, image4 */
+    #slide2:checked~.carrusel-contenedor {
+        transform: translateX(-33.333%);
+    }
+
+    .flecha {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        /* Centrado verticalmente */
-        font-size: 24px;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Fondo semi-transparente */
-        color: white;
-        /* Color de texto blanco */
-        border: none;
-        padding: 10px;
         cursor: pointer;
-        z-index: 1;
-        /* Asegúrate que los botones estén por encima del contenido */
+        display: none;
     }
 
-    .prev {
-        left: 0;
-        /* Posición izquierda */
+    .flecha img {
+        width: 50px;
     }
 
-    .next {
-        right: 0;
-        /* Posición derecha */
+    .flecha-izq {
+        left: -50px;
     }
 
-    /* Opcional: estilo para los iframes en el segundo carrusel */
-    .iframe-wrapper-2 iframe {
-        height: 400px;
-        /* Altura ajustada para el segundo carrusel */
+    .flecha-der {
+        right: -50px;
     }
 
-    /*footer*/
+    /* Muestra las flechas para slide1 */
+    #slide1:checked~.flecha1 {
+        display: block;
+    }
+
+    /* Muestra las flechas para slide2 */
+    #slide2:checked~.flecha2 {
+        display: block;
+    }
+
+    /* Muestra las flechas para slide3 */
+    #slide3:checked~.flecha3 {
+        display: block;
+    }
+
+    /* Muestra las flechas para slide4 */
+    #slide4:checked~.flecha4 {
+        display: block;
+    }
+
     footer {
         background-color: #E76868;
-        padding: 15px;
+        text-align: center;
+        color: #fff;
+        padding: 0 5%;
     }
 
     .boton-titulo-footer {
@@ -277,451 +415,858 @@
         border-radius: 50px;
         background-color: transparent;
         color: #fff;
-        margin-top: 30px;
+        margin: 50px 0;
     }
 
-    .marcas {
-        width: 60rem;
-        margin: 10px 0;
+    .marcas-img-compu {
+        width: 90%;
+        margin-bottom: 30px;
     }
 
-    .marcas2 {
+    .marcas-img-celu {
         display: none;
     }
 
-    footer p {
-        font-size: 20px;
-        color: #fff;
-    }
-
-    .icons-social-blancos {
-        display: flex;
+    .social-section {
         border: 2px solid #fff;
-        border-radius: 30px;
-        background-color: transparent;
-        justify-content: center;
-        width: 450px;
-        margin: 15px 0;
+        border-radius: 50px;
+        display: inline-block;
+        padding: 15px;
+        margin-bottom: 30px;
     }
 
-    /*responsives*/
+    footer p {
+        margin: 30px 0;
+    }
+
+    .gabi-coder-img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Checkbox oculto */
+    .chat-toggle {
+        display: none;
+    }
+
+    /* Estilos del botón flotante */
+    .chat-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #f27c7c;
+        border: 3px solid #fff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        animation: slideInRight 1.5s ease-out;
+    }
+
+    .chat-button img {
+        width: 30px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .chat-button:hover {
+        background: #e06464;
+    }
+
+    /* Contenedor del chat */
+    .chat-container {
+        width: 360px;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+    }
+
+    /* Mostrar chat cuando el checkbox está activo */
+    .chat-toggle:checked~.chat-container {
+        display: flex;
+    }
+
+    /* Encabezado del chat */
+    .chat-header {
+        background: #f27c7c;
+        color: white;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        /* Alinear verticalmente */
+        gap: 8px;
+        /* Espacio entre la imagen y el nombre */
+        border-radius: 15px 15px 0 0;
+        position: relative;
+        /* Necesario para mover la "X" */
+    }
+
+    .chat-header h3 {
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .chat-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .status {
+        font-size: 12px;
+    }
+
+    /* Botón de cerrar el chat */
+    .close-chat {
+        position: absolute;
+        top: 5px;
+        /* Mover más arriba */
+        right: 10px;
+        /* Ajustar la posición a la derecha */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+
+    /* Ocultar chat cuando se cierra */
+    .chat-toggle:not(:checked)~.chat-container {
+        display: none;
+    }
+
+    /* Cuerpo del chat */
+    .chat-body {
+        background: #cbe7ff;
+        padding: 25px 15px;
+    }
+
+    .chat-message {
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+
+    /* Pie del chat */
+    .chat-footer {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: #f1f1f1;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .chat-footer input {
+        flex: 1;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: gray;
+        background: #e0e0e0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .send-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
 
     @media screen and (max-width: 1400px) {
-
-        /*video y info*/
-        .video-info {
-            flex-direction: column;
+        html {
+            overflow-x: hidden;
         }
 
-        .dato {
-            max-width: 500px;
-        }
-    }
-
-    @media screen and (max-width: 1100px) {
-
-        main p {
-            font-size: 18px;
-        }
-
-        /*header*/
-        .logo {
-            width: 180px;
-            height: auto;
-        }
-
-        .icon {
-            margin-right: 15px;
+        .turno-btn {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            background: #a6a6a6;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 0 0 0 10px;
+            font-weight: bold;
+            border-right: 2px solid #fff;
+            opacity: 1;
+            font-size: 17px;
         }
 
-        /*portada*/
-        .text-portada p {
-            font-size: 18px;
-        }
-
-        .text-portada h1 {
-            font-size: 30px;
-        }
-
-        /*contacto*/
-        .datos-contacto {
+        .saber-mas {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40%;
+            background: #a6a6a6;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 0 0 10px 0;
+            font-weight: bold;
+            font-size: 17px;
         }
 
-        .infos {
-            margin: 20px 0;
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            color: #fff;
+            padding: 10px;
+            font-size: 13px;
+            text-align: center;
+            width: 80%;
+            display: none;
+            transition: opacity 0.4s ease;
         }
 
-        /*footer*/
-        footer p {
-            font-size: 18px;
-        }
-
-        .marcas {
+        .checkbox {
             display: none;
         }
 
-        .marcas2 {
-            display: flex;
-            width: 40rem;
-            margin: 20px 0;
-        }
-
-        .QR {
-            width: 180px;
-            margin: 20px;
+        /* Mostrar el texto cuando el checkbox esté marcado */
+        .checkbox:checked+.saber-mas+.overlay {
+            display: block;
+            opacity: 1;
         }
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1200px) {
 
-        main p {
-            font-size: 15px;
+        body {
+            font-size: 17px;
         }
 
-        /*header*/
-        .icon {
-            width: 45px;
+        html {
+            overflow-x: hidden;
+        }
+
+        header {
+            flex-direction: column;
+            align-items: center;
             height: auto;
-            margin-right: 5px;
         }
 
-        /*portada*/
-        .text-portada p {
-            font-size: 12px;
+        .menu {
+            order: 1;
+            margin: 15px 0;
         }
 
-        .text-portada h1 {
-            font-size: 25px;
+        .social-media {
+            order: 2;
+            margin: 15px 0;
+        }
+
+        .logo-cabecera {
+            margin: 10px 0;
+            height: 160px;
+            width: auto;
+        }
+
+        .datos {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+        }
+
+        .dato {
+            margin: 20px;
+        }
+
+        .producto {
+            width: 45%;
+        }
+
+        .turno-btn {
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .saber-mas {
+            padding: 15px 0;
+            font-size: 18px;
+        }
+
+        .overlay {
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .galeria-casos video {
+            width: 90%;
+        }
+
+        .item {
+            width: calc(100% / 2);
+            flex-shrink: 0;
+        }
+
+        #slide2:checked~.carrusel-contenedor {
+            transform: translateX(-50%);
+        }
+
+        #slide3:checked~.carrusel-contenedor {
+            transform: translateX(-100%);
+        }
+
+        .marcas-img-compu {
+            display: none;
+        }
+
+        .marcas-img-celu {
+            display: block;
+            width: 90%;
+            margin-bottom: 50px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        body {
+            font-size: 20px;
+        }
+
+        html {
+            overflow-x: hidden;
         }
 
         .portada {
-            display: flex;
-            align-items: center;
-            flex-direction: column-reverse;
+            display: inline-block;
         }
 
-        .portada img {
+        .imagen-portada {
             width: 100%;
-            height: auto;
+            height: 300px;
+            object-fit: cover;
+            object-position: center bottom;
+            opacity: 0.8;
         }
 
         .text-portada {
-            position: relative;
-            background-color: #C7EAFF;
-            opacity: 0.8;
-            padding: 40px;
+            justify-content: center;
+            position: static;
+            opacity: 1;
         }
 
-        /*titulos globos*/
-        .boton-titulo {
-            font-size: 20px;
-        }
-
-        .boton-titulo-footer {
-            margin: 20px 10px;
-            font-size: 20px;
-        }
-
-        /*Productos y servicios*/
         .productos {
             flex-direction: column;
-            display: flex;
-            align-items: center;
         }
 
-        /*video y info*/
-        video {
-            width: 350px;
-            height: auto;
+        .producto {
+            width: 100%;
         }
 
-        .info-nuestra h1 {
+        .overlay {
+            padding: 15px;
             font-size: 20px;
         }
 
-        /*socials*/
-        .redes {
+        .info-contacto {
+            display: flex;
             flex-direction: column;
         }
 
-        /*footer*/
-        footer p {
+        .datos-contacto {
+            width: 100%;
+        }
+
+        .galeria-casos video {
+            width: 100%;
+        }
+
+        .item {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        #slide2:checked~.carrusel-contenedor {
+            transform: translateX(-100%);
+        }
+
+        #slide3:checked~.carrusel-contenedor {
+            transform: translateX(-200%);
+        }
+
+        #slide4:checked~.carrusel-contenedor {
+            transform: translateX(-300%);
+        }
+
+        .chat-button {
+            font-size: 20px;
+        }
+
+        .chat-container {
+            width: 450px;
+        }
+
+        .chat-header {
+            background: #f27c7c;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            margin-top: 10px;
+            font-size: 25px;
+        }
+
+        .close-chat {
+            padding: 20px;
+        }
+
+        .status {
+            font-size: 20px;
+        }
+
+        .chat-message {
+            font-size: 20px;
+        }
+
+        .chat-footer {
+            padding: 20px 10px;
+        }
+
+        .chat-footer input {
+            font-size: 20px;
+        }
+
+        .marcas-img-celu {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        body {
             font-size: 15px;
         }
 
-        .marcas2 {
-            width: 30rem;
+        html {
+            overflow-x: hidden;
+        }
+
+        .menu a {
+            font-size: 15px;
+        }
+
+        .menu-item {
+            padding: 3px 5px;
+        }
+
+        .dato {
+            width: 300px;
+        }
+
+        .overlay {
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        .carrusel {
+            width: 80%;
+        }
+
+        .chat-button {
+            font-size: 16px;
+        }
+
+        .chat-container {
+            width: 370px;
+        }
+
+        .chat-header {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .chat-header h3 {
             margin: 0;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .close-chat {
+            padding: 20px;
+        }
+
+        .status {
+            font-size: 16px;
+        }
+
+        .chat-message {
+            font-size: 16px;
+        }
+
+        .chat-footer input {
+            font-size: 16px;
+        }
+
+    }
+
+    @media screen and (max-width: 400px) {
+        .chat-button {
+            font-size: 15px;
+        }
+
+        .chat-container {
+            width: 340px;
+        }
+
+        .chat-header {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .close-chat {
+            padding: 18px;
+        }
+
+        .status {
+            font-size: 15px;
+        }
+
+        .chat-message {
+            font-size: 15px;
+        }
+
+        .chat-footer input {
+            font-size: 15px;
+        }
+
+        .social-section {
+            padding: 10px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: auto;
         }
     }
 </style>
 
 <body>
-
-    <?php
-
-    $iconosSociales = [
-        ["link" => "https://www.facebook.com/LabDentalCongreso", "image" => "images/facebook.png"],
-        ["link" => "https://www.instagram.com/labdentalcongreso/?hl=es-la", "image" => "images/instagram.png"],
-        ["link" => "mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar...", "image" => "images/correo.png"],
-        ["link" => "https://www.tiktok.com/@labdeltal?is_from_webapp=1&sender_device=pc", "image" => "images/tiktok.png"],
-        ["link" => "tel:11-5601-8912", "image" => "images/telefono.png"],
-        ["link" => "https://maps.app.goo.gl/qNqJL3g7YrWN5gr28", "image" => "images/ubicacion.png"],
-    ];
-
-    $iconosSocialesBlancos = [
-        ["link" => "https://www.facebook.com/LabDentalCongreso", "image" => "images/facebook-blanco.png"],
-        ["link" => "https://www.instagram.com/labdentalcongreso/?hl=es-la", "image" => "images/instagram-blanco.png"],
-        ["link" => "mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar...", "image" => "images/correo-blanco.png"],
-        ["link" => "https://www.tiktok.com/@labdeltal?is_from_webapp=1&sender_device=pc", "image" => "images/tiktok-blanco.png"],
-        ["link" => "tel:11-5601-8912", "image" => "images/telefono-blanco.png"],
-        ["link" => "https://maps.app.goo.gl/qNqJL3g7YrWN5gr28", "image" => "images/ubicacion-blanco.png"],
-    ];
-
-    $productosServicios = [
-        "Prótesis flexibles",
-        "Prótesis de acrilico",
-        "Prótesis con cromo cobalto",
-        "Prótesis arañitas",
-        "Prótesis completas",
-        "Prótesis parciales",
-        "Reparación de prótesis",
-        "Ajustes y modificaciones",
-        "Rebasado de prótesis",
-        "Retenedores dentales",
-        "Protectores bucales",
-        "Protectores contra bruxismo",
-        "Coronas de acrilico"
-    ];
-
-    // Función para mostrar iconos sociales
-    function mostrarIconosSociales($icons)
-    {
-        foreach ($icons as $icon) {
-            echo '<a href="' . $icon['link'] . '" target="_blank"><img src="' . $icon['image'] . '" alt="" class="icon"></a>';
-        }
-    }
-
-    // Función para mostrar iconos sociales
-    function mostrariconosSocialesBlancos($icons)
-    {
-        foreach ($icons as $icon) {
-            echo '<a href="' . $icon['link'] . '" target="_blank"><img src="' . $icon['image'] . '" alt="" class="icon"></a>';
-        }
-    }
-
-    // Función para mostrar productos y servicios
-    function mostrarProductosServicios($productosServicios)
-    {
-        foreach ($productosServicios as $productoServicio) {
-            echo '<div class="productos-check"><img src="images/check.png" alt="" class="icon-check"><p>' . $productoServicio . '</p></div>';
-        }
-    }
-
-    ?>
-
     <header>
-        <section class="icons-social">
-            <?php mostrarIconosSociales($iconosSociales); ?>
-        </section>
-        <img src="images/logo1.png" alt="" class="logo">
+        <nav class="menu">
+            <div class="menu-item"><a href="home.php">Inicio</a></div>
+            <div class="menu-item"><a href="#nuestros-servicios">Nuestros servicios</a></div>
+            <div class="menu-item"><a href="#contactanos">Contáctanos</a></div>
+        </nav>
+
+        <a href="home.php"><img src="images/logo-a-color.png" class="logo-cabecera" alt=""></a>
+
+        <nav class="social-media">
+            <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta."><img src="images/whatsapp-azul.png" class="social-icon" alt=""></a>
+            <a href="https://www.facebook.com/LabDentalCongreso"><img src="images/facebook-azul.png" class="social-icon" alt=""></a>
+            <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la"><img src="images/instagram-azul.png" class="social-icon" alt=""></a>
+            <a href="mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar..."><img src="images/correo-azul.png" class="social-icon" alt=""></a>
+            <a href="tel:11-5601-8912"><img src="images/telefono-azul.png" class="social-icon" alt=""></a>
+            <a href="https://maps.app.goo.gl/qNqJL3g7YrWN5gr28"><img src="images/ubicacion-azul.png" class="social-icon" alt=""></a>
+        </nav>
     </header>
 
     <div class="portada">
+        <img src="images/image1.png" class="imagen-portada" alt="">
         <div class="text-portada">
             <h1>¡Bienvenidos a LabDental Congreso!</h1>
             <p> Somos especialistas en la fabricación y reparación de prótesis removibles. <br> Con nosotros, encontrarás soluciones dentales confiables y de calidad.</p>
         </div>
-        <img src="images/portada.png" alt="">
     </div>
 
-    <main>
-        <div class="video-info">
-            <video width="700" height="700" autoplay muted loop controls>
+    <div class="sobre-nosotros">
+        <center>
+            <h2 class="boton-titulo">Sobre nosotros</h2>
+        </center>
+        <div class="datos">
+            <div class="dato">
+                <img src="images/icon1.png" alt="">
+                <h2>Trayectoria</h2>
+                <div class="linea-celeste"></div>
+                <p>Con 15 años de experiencia, hemos dedicado nuestro compromiso y profesionalidad al servicio de odontólogos, clínicas y laboratorios dentales.</p>
+            </div>
+            <div class="dato">
+                <img src="images/icon2.png" alt="">
+                <h2>Servicio</h2>
+                <div class="linea-celeste"></div>
+                <p>Nuestra metodología de trabajo garantiza entregas puntuales, lo que contribuye a reducir los costos del trabajo final.</p>
+            </div>
+            <div class="dato">
+                <img src="images/icon3.png" alt="">
+                <h2>Personal</h2>
+                <div class="linea-celeste"></div>
+                <p>Altamente capacitado cumple con los más altos estándares de calidad en los trabajos, lo que se traduce en la obtención de los mejores resultados.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="nuestros-servicios" id="nuestros-servicios">
+        <center>
+            <h2 class="boton-titulo">Nuestros servicios</h2>
+        </center>
+        <div class="productos">
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle1" class="checkbox">
+                <label for="toggle1" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+            </div>
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle2" class="checkbox">
+                <label for="toggle2" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+            </div>
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle3" class="checkbox">
+                <label for="toggle3" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+            </div>
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle4" class="checkbox">
+                <label for="toggle4" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+            </div>
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle5" class="checkbox">
+                <label for="toggle5" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+            </div>
+
+            <div class="producto">
+                <img src="images/image1.png" class="producto-imagen" alt="">
+                <input type="checkbox" id="toggle6" class="checkbox">
+                <label for="toggle6" class="saber-mas">
+                    SABER MÁS
+                </label>
+                <div class="overlay">
+                    Las prótesis dentales flexibles son un tipo de prótesis removible que se pueden poner y quitar. Suelen estar hechas por un material llamado nylon. Se trata de un material casi transparente y que puede fabricarse de un color parecido a la encía.
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20solicitar%20un%20turno%20para%20la%20protesis%20flexible.">
+                    <div class="turno-btn">SOLICITAR TURNO</div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="contactanos" id="contactanos">
+        <center>
+            <h2 class="boton-titulo">Contáctanos</h2>
+        </center>
+        <div class="info-contacto">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.8584873610855!2d-58.390237967233354!3d-34.61132111254023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda694bff709%3A0xd9c8fb2ea844c65c!2sLaboratorio%20Dental%20Congreso!5e0!3m2!1ses!2sar!4v1742055200765!5m2!1ses!2sar" width="100%" height="778" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="datos-contacto">
+                <div class="dato-contacto">
+                    <img src="images/telefono-celeste.png" class="icon-contacto" alt="">
+                    <h4>Teléfono</h4>
+                    <p>11 5601 8912</p>
+                </div>
+                <div class="dato-contacto">
+                    <img src="images/whatsapp-celeste.png" class="icon-contacto" alt="">
+                    <h4>Whatsapp</h4>
+                    <p>11 5601 8912</p>
+                </div>
+                <div class="dato-contacto">
+                    <img src="images/facebook-celeste.png" class="icon-contacto" alt="">
+                    <h4>Facebook</h4>
+                    <p>labdentalcongreso</p>
+                </div>
+                <div class="dato-contacto">
+                    <img src="images/instagram-celeste.png" class="icon-contacto" alt="">
+                    <h4>Instagram</h4>
+                    <p>labdentalcongreso</p>
+                </div>
+                <div class="full-dato-contacto">
+                    <img src="images/horario-celeste.png" class="icon-contacto" alt="">
+                    <h4>Horario</h4>
+                    <p>Lun-Vie: 9:00 a 20:00 | Sáb: 9:00 a 14:00</p>
+                </div>
+                <div class="full-dato-contacto">
+                    <img src="images/correo-celeste.png" class="icon-contacto" alt="">
+                    <h4>Email</h4>
+                    <p>labdentalcongreso@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="galeria-casos">
+        <center>
+            <h2 class="boton-titulo">Galeria de casos</h2>
+        </center>
+        <center>
+            <video width="60%" height="60%" autoplay muted loop controls>
                 <source src="" type="video/mp4">
-                <source src="LabDental.mp4" type="video/mp4">
+                <source src="images/LabDental.mp4" type="video/mp4">
                 Tu navegador no es compatible con videos HTML
             </video>
-            <div class="info-nuestra">
-                <?php
-                $titulos = ["Personal", "Servicio", "Trayectoria"];
-                foreach ($titulos as $titulo): ?>
-                    <center>
-                        <div class="dato">
-                            <h1><?php echo $titulo; ?></h1>
-                            <div class="linea-celeste"></div>
-                            <p>
-                                <?php
-                                echo match ($titulo) {
-                                    "Personal" => "Altamente capacitado cumple con los más altos estándares de calidad en los trabajos.",
-                                    "Servicio" => "Nuestra metodología de trabajo garantiza entregas puntuales, contribuyendo a reducir costos.",
-                                    "Trayectoria" => "Con 15 años de experiencia, hemos dedicado nuestro compromiso al servicio de odontólogos."
-                                };
-                                ?>
-                            </p>
-                        </div>
-                    </center>
-                <?php endforeach; ?>
+        </center>
+
+        <div class="carrusel">
+            <input type="radio" name="slides" id="slide1" checked>
+            <input type="radio" name="slides" id="slide2">
+
+            <input type="radio" name="slides" id="slide3">
+
+            <input type="radio" name="slides" id="slide4">
+
+            <div class="carrusel-contenedor">
+                <img src="images/image1.png" class="item" alt="">
+                <img src="images/image2.png" class="item" alt="">
+                <img src="images/image3.png" class="item" alt="">
+                <img src="images/image4.png" class="item" alt="">
             </div>
+
+            <!-- slide1 -->
+            <label for="slide2" class="flecha flecha-izq flecha1">
+                <img src="images/izquierda.png" alt="Ir a la segunda vista">
+            </label>
+            <label for="slide2" class="flecha flecha-der flecha1">
+                <img src="images/derecha.png" alt="Ir a la segunda vista">
+            </label>
+
+            <!-- slide2 -->
+            <label for="slide3" class="flecha flecha-izq flecha2">
+                <img src="images/izquierda.png" alt="Ir a la tercera vista">
+            </label>
+            <label for="slide3" class="flecha flecha-der flecha2">
+                <img src="images/derecha.png" alt="Ir a la tercera vista">
+            </label>
+
+            <!-- slide3 -->
+            <label for="slide4" class="flecha flecha-izq flecha3">
+                <img src="images/izquierda.png" alt="Volver a la segunda vista">
+            </label>
+            <label for="slide4" class="flecha flecha-der flecha3">
+                <img src="images/derecha.png" alt="Volver a la segunda vista">
+            </label>
+
+            <!-- slide4 -->
+            <label for="slide1" class="flecha flecha-izq flecha4">
+                <img src="images/izquierda.png" alt="Volver a la segunda vista">
+            </label>
+            <label for="slide1" class="flecha flecha-der flecha4">
+                <img src="images/derecha.png" alt="Volver a la segunda vista">
+            </label>
+
         </div>
 
-        <div class="servicios">
-            <center>
-                <h2 class="boton-titulo">Productos y servicios</h2>
-            </center>
-            <div class="productos">
-                <div><?php mostrarProductosServicios(array_slice($productosServicios, 0, ceil(count($productosServicios) / 2))); ?></div>
-                <div><?php mostrarProductosServicios(array_slice($productosServicios, ceil(count($productosServicios) / 2))); ?></div>
-            </div>
-        </div>
-
-        <div class="contactos">
-            <center>
-                <h2 class="boton-titulo">Contáctese con nosotros</h2>
-            </center>
-            <div class="datos-contacto">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.7195252249057!2d-58.3892188!3d-34.61125319999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccda694bff709%3A0xd9c8fb2ea844c65c!2sLaboratorio%20Dental%20Congreso!5e0!3m2!1ses!2sar!4v1709940723165!5m2!1ses!2sar"
-                    style="margin: 0 15px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                <div class="infos">
-                    <?php
-                    $contactos = [
-                        ["icon" => "ubicacion.png", "texto" => "Adolfo Alsina 1609, Piso 7 Oficina 7 <br> Monserrat - Capital Federal"],
-                        ["icon" => "horario.png", "texto" => "Lun-Vie: 9:00 a 20:00 <br> Sab: 9:00 a 14:00"],
-                        ["icon" => "telefono.png", "texto" => "11 5601 8912"],
-                        ["icon" => "whatsapp.png", "texto" => "11 5601 8912"],
-                        ["icon" => "facebook.png", "texto" => "labdentalcongreso"],
-                        ["icon" => "instagram.png", "texto" => "labdentalcongreso"],
-                        ["icon" => "correo.png", "texto" => "labdentalcongreso@gmail.com"]
-                    ];
-
-                    foreach ($contactos as $contacto): ?>
-                        <div class="info-contacto">
-                            <img src="images/<?php echo $contacto['icon']; ?>" alt="" class="icon-contacto">
-                            <p><?php echo $contacto['texto']; ?></p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <div class="social-QR">
-                <center>
-                    <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la" target="_blank"><img src="images/insta-qr.png" alt="" class="QR"></a>
-                    <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta." target="_blank"><img src="images/wapp-qr.png" alt="" class="QR"></a>
-                    <a href="https://www.facebook.com/LabDentalCongreso" target="_blank"><img src="images/face-qr.png" alt="" class="QR"></a>
-                </center>
-            </div>
-        </div>
-
-        <div class="carruseles">
-            <center>
-                <h2 class="boton-titulo">Nuestros productos</h2>
-            </center>
-            <div class="iframe-carousel">
-                <button class="carousel-btn prev" onclick="showPrevious()">&#10094;</button>
-                <div class="iframe-wrapper">
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02wToBGMFr72YPERqSVyNdGBbP2vCL88x52fhskRYTrNvJJNmij2gYqzagkNTDDcBhl&width=400&show_text=false&height=795&appId" width="400" height="795"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02SyEGfacC1un8Xx66FfZkheifeenEYUyktvpChyUc6eWNUbUdVa7PvzRigfNefQiql&width=400&show_text=false&height=741&appId" width="400" height="741"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid034EJF4jmrfcwEjpJJvPaKe6YoxfsnQiZxcaiFy73m56g5dWkJRm3wr2uw3CTTTG6wl&width=400&show_text=false&height=728&appId" width="400" height="728"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid0pDLbW4nbUSYR359Xus2eSY9SZTd59AHMw2gvg3RQBqqvEk9QuijqsJXdprcBf2g7l&width=400&show_text=false&height=703&appId" width="400" height="703"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02ngSXs7AzBt8PTfwLwK1CM2VijpRSpX9bXf55YGSoHFtwJ3mtvqST3KsGbVqpzgYul&width=400&show_text=false&height=788&appId" width="400" height="788"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid0YAKgXZJzxqaVAWrTfhWh7nkUxUJYdMMAf8ZXFZdv2pPdf7v3L17Taz821eGzUkiil&width=400&show_text=false&height=691&appId" width="400" height="691"></iframe>
-                </div>
-                <button class="carousel-btn next" onclick="showNext()">&#10095;</button>
-            </div>
-
-            <center>
-                <h2 class="boton-titulo">Nuestras promociones</h2>
-            </center>
-            <div class="iframe-carousel-2">
-                <button class="carousel-btn prev" onclick="showPrevious5()">&#10094;</button>
-                <div class="iframe-wrapper-2">
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid029MndJ2a6yaQHuCWub5xVSqaz4XaqNwWxhxUcSkSQ2RhuyePCcnh4pbxrKKL8gWdvl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02Y4KDZxG8dc5eimQdVSNQ7xmgsj5Tk3DkYJ3ZH5mJNkb9fWFCZxmkqh79Qa2SMETgl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid0PTLQSRR8BY3xypfyhjk2nLcpYqwiSWKKZ4ChCyYUFGr8wsZKYMr1rSQGe5NU7P4Xl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid029unX2B4y9Y6fAgS3895rcogoP2fDQyWpKTT6bFWt55XaP8eSZejJJgY9MMsHqsTkl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
-                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLabDentalCongreso%2Fposts%2Fpfbid02A5BHNqcgq1jFKFYeqG7CwTRGXVeuw7prihVXqhfp873X4NkSUKKkrRCmcWf9YUmtl&width=400&show_text=false&height=500&appId" width="400" height="500"></iframe>
-                </div>
-                <button class="carousel-btn next" onclick="showNext5()">&#10095;</button>
-            </div>
-
-            <script>
-                // primer carrusel
-                let currentIndex = 0;
-                const iframes = document.querySelectorAll('.iframe-wrapper iframe');
-
-                function showIframe(index) {
-                    const offset = index * -100 / 3; // Desplazamiento en tercios
-                    document.querySelector('.iframe-wrapper').style.transform = `translateX(${offset}%)`;
-                }
-
-                function showNext() {
-                    currentIndex = (currentIndex + 3) % iframes.length; // Ciclo de índices
-                    showIframe(currentIndex);
-
-                }
-
-                function showPrevious() {
-                    currentIndex = (currentIndex - 3 + iframes.length) % iframes.length; // Ciclo de índices
-                    showIframe(currentIndex);
-                }
-
-                // Inicializa el primer conjunto de iframes visible
-                showIframe(currentIndex);
-
-                // segundo carrusel
-                let currentIndex5 = 0;
-                const iframes5 = document.querySelectorAll('.iframe-wrapper-2 iframe');
-
-                function showIframe5(index) {
-                    const offset = index * -100 / 3; // Desplazamiento en tercios
-                    document.querySelector('.iframe-wrapper-2').style.transform = `translateX(${offset}%)`;
-                }
-
-                function showNext5() {
-                    currentIndex5 = (currentIndex5 + 3) % iframes5.length; // Ciclo de índices
-                    showIframe5(currentIndex5);
-                }
-
-                function showPrevious5() {
-                    currentIndex5 = (currentIndex5 - 3 + iframes5.length) % iframes5.length; // Ciclo de índices
-                    showIframe5(currentIndex5);
-                }
-
-                // Inicializa el segundo conjunto de iframes visible
-                showIframe5(currentIndex5);
-            </script>
-        </div>
-
-    </main>
+    </div>
 
     <footer>
         <center>
             <h2 class="boton-titulo-footer">Trabajamos con las mejores marcas y proveedores</h2>
-
-            <div>
-                <img src="images/marcas.png" class="marcas" alt="">
-                <img src="images/marcas2.png" class="marcas2" alt="">
-            </div>
-            <section class="icons-social-blancos">
-                <?php mostrariconosSocialesBlancos($iconosSocialesBlancos); ?>
-            </section>
         </center>
 
-        <p>Laboratorio Dental Congreso © Copyright 2024. <br> Todos los derechos reservados.</p>
+        <center>
+            <img src="images/marcas-compu.png" class="marcas-img-compu" alt="">
+            <img src="images/marcas-celular.png" class="marcas-img-celu" alt="">
+        </center>
 
-        <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta." target="_blank" class="whatsapp">
-            <img src="images/icon-whats.png" class="images" style="width: 80px; height: auto; margin: 10px; position: fixed; bottom: 10px; right: 10px;">
-        </a>
+        <center>
+            <div class="social-section">
+                <a href="https://api.whatsapp.com/send?phone=%2B541156018912&text=Hola!%20Quisiera%20hacer%20una%20consulta."><img src="images/whatsapp-blanco.png" class="social-icon" alt=""></a>
+                <a href="https://www.facebook.com/LabDentalCongreso"><img src="images/facebook-blanco.png" class="social-icon" alt=""></a>
+                <a href="https://www.instagram.com/labdentalcongreso/?hl=es-la"><img src="images/instagram-blanco.png" class="social-icon" alt=""></a>
+                <a href="mailto:labdentalcongreso@gmail.com?subject=Consulta&body=Quisiera%20consultar..."><img src="images/correo-blanco.png" class="social-icon" alt=""></a>
+                <a href="tel:11-5601-8912"><img src="images/telefono-blanco.png" class="social-icon" alt=""></a>
+                <a href="https://maps.app.goo.gl/qNqJL3g7YrWN5gr28"><img src="images/ubicacion-blanco.png" class="social-icon" alt=""></a>
+            </div>
+        </center>
+
+
+        <p>Laboratorio Dental Congreso © Copyright 2025. Todos los derechos reservados.</p>
+
+        <div class="gabi-coder">
+            <p>Created by</p>
+            <img src="images/logo-gabi.png" class="gabi-coder-img" alt="">
+        </div>
+
     </footer>
 
-    <div>
+    <div class="chat-whatsapp">
         <!-- Botón para abrir el chat -->
         <input type="checkbox" id="chat-toggle" class="chat-toggle">
         <label for="chat-toggle" class="chat-button">
-            💬 Haz click aquí para comunicarte
+            <img src="images/whatsapp-blanco.png" alt="">
+            Haz click aquí para comunicarte
         </label>
 
         <!-- Contenedor del chat -->
