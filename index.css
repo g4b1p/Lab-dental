@@ -143,6 +143,11 @@
       text-align: center;
     }
 
+    video {
+      width: 60%;
+      height: auto; 
+    }
+
     .boton-titulo {
       display: inline-block;
       padding: 10px 20px;
@@ -208,7 +213,7 @@
 
     .producto-imagen {
       width: 100%;
-      padding-bottom: 40px;
+      padding-bottom: 50px;
       display: block;
       border-radius: 10px;
     }
@@ -269,12 +274,6 @@
       padding: 0 5%;
     }
 
-    .contenedor-promociones {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     .promocion {
       width: 50%;
       height: auto;
@@ -331,7 +330,7 @@
 
     .galeria-casos {
       padding: 0 5%;
-      margin-bottom: 5%;
+      margin-bottom: 20%;
     }
 
     .carrusel {
@@ -718,11 +717,6 @@
       .overlay {
         padding: 15px;
         font-size: 14px;
-      }
-
-      .contenedor-promociones {
-        flex-direction: column;
-        align-items: center;
       }
   
       .promocion {
